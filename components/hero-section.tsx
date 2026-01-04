@@ -161,7 +161,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-6 lg:px-8 h-full flex items-start sm:items-center justify-center pt-24 pb-12 sm:py-0">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-6 lg:px-8 h-full flex items-start sm:items-center justify-center pt-32 pb-12 sm:py-0">
         <div className="text-center space-y-5 sm:space-y-8 w-full">
           <div className={`transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-4 leading-tight animate-fade-in-up text-white px-2">

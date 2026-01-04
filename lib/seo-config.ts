@@ -1,6 +1,6 @@
 export const seoConfig = {
   title: "Zalak Rajvanshi - AI/ML Engineer & Entrepreneur",
-  description: "Zalak Rajvanshi: AI/ML Engineer and aspiring entrepreneur building intelligent solutions. Passionate about transforming ideas into practical AI technologies through innovation and strategic thinking.",
+  description: "AI/ML Engineer and aspiring entrepreneur building intelligent solutions through innovation and technology.",
   keywords: [
     "Zalak Rajvanshi",
     "AI Engineer",
@@ -37,7 +37,7 @@ export const seoConfig = {
     "@type": "Person",
     "name": "Zalak Rajvanshi",
     "jobTitle": "AI/ML Engineer & Tech Entrepreneur",
-    "description": "AI/ML Engineer and aspiring entrepreneur specializing in Artificial Intelligence, Machine Learning, and innovative tech solutions",
+    "description": "AI/ML Engineer and aspiring entrepreneur specializing in intelligent solutions and innovation",
     "url": "https://zalakrajvanshi.com",
     "sameAs": [
       "https://github.com/ZalakRajvanshi",

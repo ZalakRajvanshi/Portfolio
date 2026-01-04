@@ -125,9 +125,21 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Updated to consistent minimal professional font */
-    font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* Force custom fonts on all devices */
+    font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
     font-weight: 300; /* Light weight by default */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Force font on all elements */
+  * {
+    font-family: inherit !important;
+  }
+
+  /* Headings use Playfair */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif !important;
   }
 
   /* Disable right-click and image dragging */

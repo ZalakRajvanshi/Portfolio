@@ -157,8 +157,8 @@ export function CertificatesSection() {
               {certificates.map((cert, index) => (
                 <div key={cert.id} className="w-full flex-shrink-0">
                   <Card className="overflow-hidden border-0 bg-card/95 backdrop-blur-sm">
-                    <div className="grid lg:grid-cols-2 gap-0 min-h-[300px] sm:min-h-[500px]">
-                      <div className="relative overflow-hidden order-2 lg:order-1">
+                    <div className="grid lg:grid-cols-2 gap-0 min-h-[400px] sm:min-h-[500px]">
+                      <div className="relative overflow-hidden order-2 lg:order-1 hidden lg:block">
                         <div className="w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 flex items-center justify-center p-4 sm:p-0">
                           {/* Certificate border design */}
                           <div className="relative w-32 sm:w-48 h-24 sm:h-32 border-2 sm:border-4 border-accent/30 rounded-lg bg-background/10 backdrop-blur-sm">
@@ -215,13 +215,13 @@ export function CertificatesSection() {
                         </div>
                       </div>
 
-                      <div className="p-4 sm:p-8 lg:p-12 flex flex-col justify-center order-1 lg:order-2">
-                        <div className="space-y-3 sm:space-y-6">
-                          <div className="space-y-2 sm:space-y-4">
-                            <h3 className="text-lg sm:text-3xl lg:text-4xl font-light font-sans text-foreground leading-tight">
+                      <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center order-1 lg:order-2">
+                        <div className="space-y-4 sm:space-y-6">
+                          <div className="space-y-3 sm:space-y-4">
+                            <h3 className="text-xl sm:text-3xl lg:text-4xl font-light font-sans text-foreground leading-tight">
                               {cert.title}
                             </h3>
-                            <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-light">{cert.excerpt}</p>
+                            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-light">{cert.excerpt}</p>
                           </div>
 
                           <div className="relative hidden sm:block">
@@ -231,29 +231,28 @@ export function CertificatesSection() {
                             <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-card to-transparent" />
                           </div>
 
-                          <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
+                          <div className="flex flex-wrap gap-2 mb-4">
                             {cert.skills.map((skill) => (
-                              <Badge key={skill} variant="secondary" className="text-xs">
+                              <Badge key={skill} variant="secondary" className="text-xs sm:text-sm">
                                 {skill}
                               </Badge>
                             ))}
                           </div>
 
-                          <div className="flex gap-2 sm:gap-4 pt-2 sm:pt-4 flex-wrap">
+                          <div className="flex gap-3 pt-4 flex-wrap">
                             {cert.pdfUrl && (
-                              <Button className="bg-accent hover:bg-accent/90 group/btn shadow-lg font-light text-xs sm:text-base py-1 sm:py-2 px-2 sm:px-4" asChild>
+                              <Button className="bg-accent hover:bg-accent/90 group/btn shadow-lg font-light text-sm sm:text-base py-2 px-4" asChild>
                                 <a href={cert.pdfUrl} target="_blank" rel="noopener noreferrer">
-                                  <Award className="w-3 sm:w-4 h-3 sm:h-4 mr-1 sm:mr-2" />
-                                  <span className="hidden sm:inline">View Certificate</span>
-                                  <span className="sm:hidden">View</span>
-                                  <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 ml-1 sm:ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                                  <Award className="w-4 h-4 mr-2" />
+                                  View Certificate
+                                  <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
                                 </a>
                               </Button>
                             )}
                             {cert.verifyUrl && (
-                              <Button variant="outline" className="group/btn bg-transparent font-light text-xs sm:text-base py-1 sm:py-2 px-2 sm:px-4" asChild>
+                              <Button variant="outline" className="group/btn bg-transparent font-light text-sm sm:text-base py-2 px-4" asChild>
                                 <a href={cert.verifyUrl} target="_blank" rel="noopener noreferrer">
-                                  <ExternalLink className="w-3 sm:w-4 h-3 sm:h-4 mr-1 sm:mr-2 group-hover/btn:scale-110 transition-transform" />
+                                  <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                                   Verify
                                 </a>
                               </Button>
@@ -271,7 +270,7 @@ export function CertificatesSection() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-2 hover:border-accent hover:bg-accent hover:text-accent-foreground opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg w-8 h-8 sm:w-10 sm:h-10"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-2 hover:border-accent hover:bg-accent hover:text-accent-foreground opacity-0 sm:group-hover:opacity-100 transition-all duration-300 shadow-lg w-8 h-8 sm:w-10 sm:h-10"
             onClick={prevSlide}
           >
             <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
@@ -279,7 +278,7 @@ export function CertificatesSection() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-2 hover:border-accent hover:bg-accent hover:text-accent-foreground opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg w-8 h-8 sm:w-10 sm:h-10"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-2 hover:border-accent hover:bg-accent hover:text-accent-foreground opacity-0 sm:group-hover:opacity-100 transition-all duration-300 shadow-lg w-8 h-8 sm:w-10 sm:h-10"
             onClick={nextSlide}
           >
             <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />

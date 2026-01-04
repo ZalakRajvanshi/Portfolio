@@ -130,6 +130,18 @@
     font-weight: 300; /* Light weight by default */
   }
 
+  /* Disable right-click and image dragging */
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+
+  /* Re-enable pointer events for interactive elements */
+  button, a, input, textarea {
+    pointer-events: auto;
+  }
+
   /* Enhanced smooth scrolling with better performance */
   html {
     scroll-behavior: smooth;

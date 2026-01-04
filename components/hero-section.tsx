@@ -160,23 +160,23 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
-        <div className="text-center space-y-6 sm:space-y-8 w-full">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-6 lg:px-8 h-full flex items-center justify-center">
+        <div className="text-center space-y-4 sm:space-y-8 w-full">
           <div className={`transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 leading-tight animate-fade-in-up text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 leading-tight animate-fade-in-up text-white px-2">
               Hey, I'm <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent inline-block hover:scale-105 transition-transform duration-300" style={{backgroundSize: "300% 300%", animation: "gradient-flow 4s ease infinite"}}>Zalak Rajvanshi</span>
             </h1>
-            <div className="text-base sm:text-lg md:text-xl text-gray-300 mb-3 sm:mb-4 font-light h-8 sm:h-10">
+            <div className="text-sm sm:text-lg md:text-xl text-gray-300 mb-2 sm:mb-4 font-light h-7 sm:h-10">
               <span key={currentRole} className="text-white font-normal inline-block" style={{animation: "slideUp 0.6s ease-out"}}>{ roles[currentRole]}</span>
             </div>
-            <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 font-medium animate-fade-in-up tracking-wide line-clamp-2" style={{ animationDelay: '0.2s', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>Building AI and machine learning solutions that drive innovation and solve real-world challenges through strategic thinking and entrepreneurial vision.</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <Button size="sm" className="group relative overflow-hidden bg-foreground hover:bg-foreground/90 text-background px-3 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-xs hover:scale-105 hover:shadow-lg transition-all duration-300" onClick={() => document.getElementById("contact")?.scrollIntoView({behavior: "smooth"})}>
+            <p className="text-sm sm:text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-8 font-medium animate-fade-in-up px-4" style={{ animationDelay: '0.2s', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>Building AI and machine learning solutions that drive innovation and solve real-world challenges through strategic thinking and entrepreneurial vision.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-3 animate-fade-in-up px-4" style={{ animationDelay: '0.3s' }}>
+              <Button size="sm" className="group relative overflow-hidden bg-foreground hover:bg-foreground/90 text-background px-6 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-sm hover:scale-105 hover:shadow-lg transition-all duration-300" onClick={() => document.getElementById("contact")?.scrollIntoView({behavior: "smooth"})}>
                 <span className="relative z-10">Connect</span>
               </Button>
-              <Button variant="outline" size="sm" className="group border hover:bg-foreground hover:text-background bg-transparent px-3 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-xs hover:scale-105 hover:shadow-lg transition-all duration-300" asChild>
+              <Button variant="outline" size="sm" className="group border hover:bg-foreground hover:text-background bg-transparent px-6 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-sm hover:scale-105 hover:shadow-lg transition-all duration-300" asChild>
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                  <Download className="w-3 h-3 mr-1 group-hover:animate-bounce" />
+                  <Download className="w-4 h-4 mr-1 group-hover:animate-bounce" />
                   Resume
                 </a>
               </Button>

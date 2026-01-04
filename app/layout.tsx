@@ -10,17 +10,13 @@ const playfair = Playfair_Display({
   display: "swap",
   variable: "--font-playfair",
   weight: ["400", "700"],
-  preload: true,
-  fallback: ["serif"],
 })
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-source-sans",
-  weight: ["300", "400", "500", "600"],
-  preload: true,
-  fallback: ["system-ui", "arial"],
+  weight: ["400", "500", "600"],
 })
 
 export const metadata: Metadata = {
@@ -103,7 +99,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${sourceSans.className} antialiased`}>
+      <body className="font-sans antialiased">
         {/* 
           ThemeProvider with attribute="class" means it will add 'dark' class for dark mode.
           defaultTheme="light" means light mode is default.

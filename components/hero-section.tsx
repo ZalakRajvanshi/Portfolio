@@ -88,7 +88,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-0">
       {/* Low-poly geometric background */}
       <div className="absolute inset-0 z-0" style={{
         background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
@@ -161,16 +161,16 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-6 lg:px-8 h-full flex items-center justify-center">
-        <div className="text-center space-y-4 sm:space-y-8 w-full">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-6 lg:px-8 h-full flex items-start sm:items-center justify-center py-8 sm:py-0">
+        <div className="text-center space-y-3 sm:space-y-8 w-full mt-12 sm:mt-0">
           <div className={`transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 leading-tight animate-fade-in-up text-white px-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 leading-tight animate-fade-in-up text-white px-2">
               Hey, I'm <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent inline-block hover:scale-105 transition-transform duration-300" style={{backgroundSize: "300% 300%", animation: "gradient-flow 4s ease infinite"}}>Zalak Rajvanshi</span>
             </h1>
-            <div className="text-sm sm:text-lg md:text-xl text-gray-300 mb-2 sm:mb-4 font-light h-7 sm:h-10">
+            <div className="text-base sm:text-lg md:text-xl text-gray-300 mb-3 sm:mb-4 font-light h-8 sm:h-10">
               <span key={currentRole} className="text-white font-normal inline-block" style={{animation: "slideUp 0.6s ease-out"}}>{ roles[currentRole]}</span>
             </div>
-            <p className="text-sm sm:text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-8 font-medium animate-fade-in-up px-4" style={{ animationDelay: '0.2s', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>Building AI and machine learning solutions that drive innovation and solve real-world challenges through strategic thinking and entrepreneurial vision.</p>
+            <p className="text-sm sm:text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-8 font-medium animate-fade-in-up px-4" style={{ animationDelay: '0.2s', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>Building AI and machine learning solutions that drive innovation and solve real-world challenges through strategic thinking and entrepreneurial vision.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-3 animate-fade-in-up px-4" style={{ animationDelay: '0.3s' }}>
               <Button size="sm" className="group relative overflow-hidden bg-foreground hover:bg-foreground/90 text-background px-6 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-sm hover:scale-105 hover:shadow-lg transition-all duration-300" onClick={() => document.getElementById("contact")?.scrollIntoView({behavior: "smooth"})}>
                 <span className="relative z-10">Connect</span>

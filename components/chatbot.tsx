@@ -26,67 +26,91 @@ const portfolioData = {
 }
 
 const generateResponse = (query: string): string => {
-  const lowerQuery = query.toLowerCase()
+  const lowerQuery = query.toLowerCase().trim()
 
-  if (lowerQuery.match(/^(who|what).*(you|name)/)) {
+  // Name queries
+  if (lowerQuery.match(/(who are you|what is your name|your name|tell me about yourself|introduce)/)) {
     return `I'm ${portfolioData.name}, a B.Tech CE student at Silver Oak University with a passion for AI/ML and entrepreneurship.`
   }
-  if (lowerQuery.includes("name")) {
-    return `My name is ${portfolioData.name}`
-  }
   
-  if (lowerQuery.match(/role|position|what do you do|currently/)) {
-    return `I currently hold 4 key roles:\n• IEEE SOU WIE Vice Chair - Leading women in engineering initiatives\n• GDG Content Lead - Creating technical content for developers\n• AWS Volunteer - Supporting cloud communities\n• Senior Curation Executive - Managing content strategy`
-  }
-  
-  if (lowerQuery.match(/education|degree|university|college|cgpa|gpa/)) {
-    return `📚 Education:\n• B.Tech Computer Engineering at Silver Oak University (CGPA: 9.56)\n• HSC at Adani Vidya Mandir (80%)\n• SSC at Adani Vidya Mandir (80%)`
-  }
-  
-  if (lowerQuery.match(/^(ai|ml|machine learning|deep learning|neural|tensorflow|pytorch)/)) {
-    return `🤖 AI/ML Expertise:\n• Languages: Python\n• Frameworks: TensorFlow, PyTorch\n• Specializations: Computer Vision (OpenCV), NLP, RAG Systems, Agentic AI\n• Advanced: LangChain, LLM applications, Retrieval Augmented Generation`
-  }
-  
-  if (lowerQuery.match(/development|programming|code|frontend|backend|fullstack|web/)) {
-    return `💻 Development Stack:\n• Frontend: React, Next.js, TypeScript\n• Backend: FastAPI, Python\n• Cloud: AWS services\n• DevOps: Docker, containerization`
-  }
-  
-  if (lowerQuery.match(/soft skill|leadership|communication|management|speaking/)) {
-    return `🎯 Soft Skills:\n• Leadership - IEEE WIE Vice Chair\n• Content Creation - GDG Content Lead\n• Innovation & Problem Solving\n• Entrepreneurship & Business Strategy\n• Public Speaking & Communication`
-  }
-  
-  if (lowerQuery.match(/certificate|certification|course|training/)) {
-    return `🏆 Certifications:\n• Microsoft AI/ML Foundations\n• Google Gen AI Study Jams\n• Udemy 100 Days Python\n• IEEE XTREME 18.0`
-  }
-  
-  if (lowerQuery.match(/contact|email|reach|connect|message|phone/)) {
-    return `📧 Contact Me:\n• Email: ${portfolioData.contact}\n• Location: ${portfolioData.location}\n• LinkedIn & GitHub available on portfolio`
-  }
-  
-  if (lowerQuery.includes("ieee")) {
-    return `🔗 IEEE SOU WIE:\nAs Vice Chair, I lead initiatives to empower women in engineering, promote diversity in tech, and organize community events and workshops.`
-  }
-  
-  if (lowerQuery.includes("gdg")) {
-    return `🔗 GDG Content Lead:\nI create engaging technical content for Google Developer Groups, helping developers learn and grow their skills in modern technologies.`
-  }
-  
-  if (lowerQuery.includes("aws")) {
-    return `☁️ AWS Volunteer:\nI volunteer with AWS communities, supporting cloud technology adoption and helping others understand scalable cloud solutions.`
-  }
-  
-  if (lowerQuery.match(/business|entrepreneurship|startup|innovation|venture/)) {
-    return `💼 Business & Entrepreneurship:\nI'm passionate about combining technical AI/ML expertise with business strategy to build sustainable, innovative solutions and explore startup opportunities.`
-  }
-  
-  if (lowerQuery.match(/project|portfolio|work|experience/)) {
+  // Projects - flexible matching
+  if (lowerQuery.match(/(project|work|portfolio|built|created|developed|made)/)) {
     return `📁 Projects:\nCheck the Projects section on my portfolio to see my latest work combining AI/ML, web development, and innovative solutions.`
   }
   
-  if (lowerQuery.match(/skill|expertise|what can you|proficient/)) {
+  // Specific role queries
+  if (lowerQuery.match(/(curation|executive|senior curation)/)) {
+    return `📝 Senior Curation Executive:\nI manage content strategy and curation, ensuring high-quality technical content reaches the right audience effectively.`
+  }
+  
+  if (lowerQuery.match(/(ieee|women in engineering|wie)/)) {
+    return `🔗 IEEE SOU WIE Vice Chair:\nI lead initiatives to empower women in engineering, promote diversity in tech, and organize community events and workshops.`
+  }
+  
+  if (lowerQuery.match(/(gdg|google developer|developer group)/)) {
+    return `🔗 GDG Content Lead:\nI create engaging technical content for Google Developer Groups, helping developers learn and grow their skills in modern technologies.`
+  }
+  
+  if (lowerQuery.match(/(aws|amazon|cloud volunteer)/)) {
+    return `☁️ AWS Volunteer:\nI volunteer with AWS communities, supporting cloud technology adoption and helping others understand scalable cloud solutions.`
+  }
+  
+  // All roles
+  if (lowerQuery.match(/(role|position|job|what do you do|current|leadership|responsibilities)/)) {
+    return `I currently hold 4 key roles:\n• IEEE SOU WIE Vice Chair - Leading women in engineering initiatives\n• GDG Content Lead - Creating technical content for developers\n• AWS Volunteer - Supporting cloud communities\n• Senior Curation Executive - Managing content strategy`
+  }
+  
+  // Education
+  if (lowerQuery.match(/(education|degree|university|college|cgpa|gpa|study|student|school)/)) {
+    return `📚 Education:\n• B.Tech Computer Engineering at Silver Oak University (CGPA: 9.56)\n• HSC at Adani Vidya Mandir (80%)\n• SSC at Adani Vidya Mandir (80%)`
+  }
+  
+  // Certificates
+  if (lowerQuery.match(/(certificate|certification|course|training|certified|credential)/)) {
+    return `🏆 Certifications:\n• Microsoft AI/ML Foundations\n• Google Gen AI Study Jams\n• Udemy 100 Days Python\n• IEEE XTREME 18.0`
+  }
+  
+  // AI/ML specific
+  if (lowerQuery.match(/(ai|ml|machine learning|deep learning|neural|tensorflow|pytorch|computer vision|nlp|artificial intelligence)/)) {
+    return `🤖 AI/ML Expertise:\n• Languages: Python\n• Frameworks: TensorFlow, PyTorch\n• Specializations: Computer Vision (OpenCV), NLP, RAG Systems, Agentic AI\n• Advanced: LangChain, LLM applications, Retrieval Augmented Generation`
+  }
+  
+  // Development
+  if (lowerQuery.match(/(development|programming|code|coding|frontend|backend|fullstack|web|react|next|typescript|developer)/)) {
+    return `💻 Development Stack:\n• Frontend: React, Next.js, TypeScript\n• Backend: FastAPI, Python\n• Cloud: AWS services\n• DevOps: Docker, containerization`
+  }
+  
+  // Skills general
+  if (lowerQuery.match(/(skill|expertise|what can|proficient|tech stack|technologies|abilities|capabilities)/)) {
     return `🛠️ My Skills:\n• AI/ML: Python, TensorFlow, PyTorch, OpenCV, RAG, LangChain\n• Development: React, Next.js, TypeScript, FastAPI, AWS, Docker\n• Soft: Leadership, Content Creation, Innovation, Entrepreneurship`
   }
   
+  // Soft skills
+  if (lowerQuery.match(/(soft skill|communication|management|speaking|presentation|leader)/)) {
+    return `🎯 Soft Skills:\n• Leadership - IEEE WIE Vice Chair\n• Content Creation - GDG Content Lead\n• Innovation & Problem Solving\n• Entrepreneurship & Business Strategy\n• Public Speaking & Communication`
+  }
+  
+  // Contact
+  if (lowerQuery.match(/(contact|email|reach|connect|message|phone|hire|opportunity|get in touch|talk)/)) {
+    return `📧 Contact Me:\n• Email: ${portfolioData.contact}\n• Location: ${portfolioData.location}\n• LinkedIn & GitHub available on portfolio`
+  }
+  
+  // Business/Entrepreneurship
+  if (lowerQuery.match(/(business|entrepreneurship|startup|innovation|venture|entrepreneur|founder)/)) {
+    return `💼 Business & Entrepreneurship:\nI'm passionate about combining technical AI/ML expertise with business strategy to build sustainable, innovative solutions and explore startup opportunities.`
+  }
+  
+  // Location
+  if (lowerQuery.match(/(where|location|from|based|live)/)) {
+    return `📍 I'm based in ${portfolioData.location}`
+  }
+  
+  // Experience
+  if (lowerQuery.match(/(experience|background|journey|story)/)) {
+    return `I'm a B.Tech CE student (CGPA 9.56) with strong AI/ML expertise and 4 leadership roles. I combine technical skills with entrepreneurial thinking to build innovative solutions.`
+  }
+  
+  // Default fallback
   return `Hi! I'm Zalak's portfolio assistant. I can help you learn about:\n• My background & education\n• AI/ML & development skills\n• Leadership roles (IEEE, GDG, AWS)\n• Certifications & projects\n• How to contact me\n\nWhat would you like to know?`
 }
 

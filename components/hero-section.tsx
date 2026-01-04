@@ -17,12 +17,12 @@ export function HeroSection() {
   
   const workImages = useMemo(() => [
     {
-      src: "/slideshow/ieee-work.jpeg",
+      src: "/slideshow/ieee-work.jpg",
       alt: "IEEE SOU WIE Vice Chair work",
       caption: "Leading IEEE WIE initiatives"
     },
     {
-      src: "/slideshow/gdg-work.jpeg",
+      src: "/slideshow/gdg-work.jpg",
       alt: "GDG Content Lead work",
       caption: "Creating content for GDG community"
     },
@@ -32,7 +32,7 @@ export function HeroSection() {
       caption: "AWS community volunteering"
     },
     {
-      src: "/slideshow/curation-work.jpeg",
+      src: "/slideshow/curation-work.jpg",
       alt: "Senior Curation Executive work",
       caption: "Content curation and management"
     }

@@ -28,18 +28,10 @@ export function AboutSection() {
   }, [])
 
   const skills = [
-    "Python",
-    "Machine Learning",
-    "TensorFlow",
-    "Business Strategy",
-    "Entrepreneurship",
-    "Content Creation",
-    "Community Leadership",
-    "AWS",
-    "Technical Writing",
-    "Project Management",
-    "Public Speaking",
-    "Innovation",
+    "Technical Excellence",
+    "Strategic Thinking",
+    "Confidence & Public Speaking",
+    "Team Building & Leadership",
   ]
 
   return (
@@ -89,10 +81,10 @@ export function AboutSection() {
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-lg sm:text-xl font-semibold text-primary">Core Technologies</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-primary">Key Strengths</h3>
+              <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
-                  <Badge key={skill} variant="secondary" className="text-xs sm:text-sm text-center">
+                  <Badge key={skill} variant="secondary" className="text-xs sm:text-sm">
                     {skill}
                   </Badge>
                 ))}

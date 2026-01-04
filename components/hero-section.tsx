@@ -133,11 +133,10 @@ export function HeroSection() {
               priority={index === 0}
               quality={95}
               sizes="100vw"
-              className="object-cover object-center"
+              className="object-contain object-center"
               style={{
                 filter: imagesLoaded ? 'none' : 'blur(20px)',
-                transition: 'filter 0.5s ease-in-out',
-                objectPosition: 'center 30%'
+                transition: 'filter 0.5s ease-in-out'
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-black/3 to-black/5 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-pink-900/30" />

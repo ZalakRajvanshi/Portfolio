@@ -16,7 +16,7 @@ const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-source-sans",
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
 })
 
 export const metadata: Metadata = {
@@ -86,8 +86,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <style>{`
           html {
             --font-playfair: ${playfair.style.fontFamily};

@@ -24,9 +24,9 @@ export function EducationSection() {
   const timelineData: TimelineItem[] = [
     {
       id: 1,
-      year: "2022-2026",
-      title: "B.Tech Computer Engineering",
-      institution: "Silver Oak University",
+      year: "2022-Present",
+      title: "Bachelor of Engineering (Computer Engineering)",
+      institution: "SOCET - Silver Oak University",
       description:
         "Currently pursuing Bachelor's in Computer Engineering with specialization in AI/ML. Maintaining excellent academic performance with focus on innovative technology solutions.",
       type: "education",
@@ -35,20 +35,20 @@ export function EducationSection() {
     {
       id: 2,
       year: "2022",
-      title: "Class 12th HSC",
-      institution: "Adani Vidya Mandir",
+      title: "Higher Secondary (12th)",
+      institution: "CBSE",
       description:
-        "Completed Higher Secondary Certificate with 80% marks, building strong foundation in science and mathematics.",
+        "Completed Higher Secondary Certificate, building strong foundation in science and mathematics.",
       type: "certification",
       skills: ["Mathematics", "Physics", "Chemistry", "Computer Science"],
     },
     {
       id: 3,
       year: "2020",
-      title: "Class 10th SSC",
-      institution: "Adani Vidya Mandir",
+      title: "Secondary School (10th)",
+      institution: "CBSE",
       description:
-        "Completed Secondary School Certificate with 80% marks, establishing fundamental academic excellence.",
+        "Completed Secondary School Certificate, establishing fundamental academic excellence.",
       type: "course",
       skills: ["Mathematics", "Science", "English", "Social Studies"],
     },

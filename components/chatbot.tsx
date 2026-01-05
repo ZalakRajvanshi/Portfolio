@@ -35,7 +35,12 @@ const generateResponse = (query: string): string => {
   
   // Projects - flexible matching
   if (lowerQuery.match(/(project|work|portfolio|built|created|developed|made)/)) {
-    return `📁 Projects:\nCheck the Projects section on my portfolio to see my latest work combining AI/ML, web development, and innovative solutions.`
+    return `📁 My Projects:\n• Smart Task AI - AI-powered task management\n• Health RAG System - Medical information retrieval\n• Sign Language Detection - Real-time gesture recognition\n• Handwritten Text Recognition - OCR system\n• Fitness Pose Detection - Computer vision for fitness\n\nView all projects in the Projects section!`
+  }
+  
+  // Achievements
+  if (lowerQuery.match(/(achievement|accomplishment|award|recognition|success)/)) {
+    return `🏆 Key Achievements:\n• Vice Chair - IEEE SOU WIE SB AG\n• Content Lead - Google Developer Groups\n• AWS Community Volunteer\n• Senior Curation Executive Officer\n• CGPA: 9.56/10\n• Multiple certifications in AI/ML`
   }
   
   // Specific role queries

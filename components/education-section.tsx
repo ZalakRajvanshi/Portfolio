@@ -24,7 +24,7 @@ export function EducationSection() {
   const timelineData: TimelineItem[] = [
     {
       id: 1,
-      year: "2022-Present",
+      year: "2022-2026",
       title: "Bachelor of Engineering (Computer Engineering)",
       institution: "SOCET - Silver Oak University",
       description:

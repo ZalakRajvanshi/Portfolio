@@ -83,8 +83,8 @@ export function ProjectsSection() {
         "AI-powered day planner that converts natural-language goals into time-blocked, prioritized schedules. Adapts dynamically and improves over time through intelligent planning algorithms.",
       image: "/projects/smart-task-ai.jpg",
       technologies: ["Python", "NLP", "Task Scheduling", "AI Planning"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://github.com/ZalakRajvanshi/SmartTaskAI",
+      githubUrl: "https://github.com/ZalakRajvanshi/SmartTaskAI",
       category: "Productivity App",
     },
   ]

@@ -20,7 +20,16 @@ const portfolioData = {
     development: ["React", "Next.js", "TypeScript", "FastAPI", "AWS", "Docker"],
     soft: ["Leadership", "Content Creation", "Innovation", "Entrepreneurship", "Communication"]
   },
+  projects: [
+    "Smart Task AI - AI-powered task management",
+    "Health RAG System - Medical information retrieval",
+    "Sign Language Detection - Real-time gesture recognition",
+    "Handwritten Text Recognition - OCR system",
+    "Fitness Pose Detection - Computer vision for fitness",
+    "Smart Notes - Intelligent note-taking app"
+  ],
   certificates: ["Microsoft AI/ML Foundations", "Google Gen AI Study Jams", "Udemy 100 Days Python", "IEEE XTREME 18.0"],
+  strengths: ["Confidence & Public Speaking", "Critical Thinking", "Technical Leadership", "Team Building"],
   contact: "zalakrajvanshi08@gmail.com",
   location: "Ahmedabad, Gujarat, India"
 }
@@ -28,6 +37,16 @@ const portfolioData = {
 const generateResponse = (query: string): string => {
   const lowerQuery = query.toLowerCase().trim()
 
+  // Strengths
+  if (lowerQuery.match(/(strength|strong|good at|best at|confident|confidence)/)) {
+    return `💪 My Key Strengths:\n• Confidence & Public Speaking\n• Critical Thinking\n• Technical Leadership\n• Team Building`
+  }
+  
+  // About section
+  if (lowerQuery.match(/(about|who|introduction|bio|profile)/)) {
+    return `👋 About Me:\nI'm a passionate student leader combining technical expertise with entrepreneurial vision. Currently pursuing B.Tech CE at Silver Oak University with 9.56 CGPA. I hold 4 key leadership roles and am committed to building impactful AI/ML solutions.`
+  }
+  
   // Name queries
   if (lowerQuery.match(/(who are you|what is your name|your name|tell me about yourself|introduce)/)) {
     return `I'm ${portfolioData.name}, a B.Tech CE student at Silver Oak University with a passion for AI/ML and entrepreneurship.`

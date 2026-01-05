@@ -28,7 +28,7 @@ export function EducationSection() {
       title: "Bachelor of Engineering (Computer Engineering)",
       institution: "SOCET - Silver Oak University",
       description:
-        "Currently pursuing Bachelor's in Computer Engineering with specialization in AI/ML. Maintaining excellent academic performance with focus on innovative technology solutions.",
+        "Currently pursuing Bachelor's in Computer Engineering with Hands-on experience in AI/ML. Maintaining excellent academic performance with focus on innovative technology solutions.",
       type: "education",
       skills: ["AIML", "Data Structures", "Algorithms", "Software Engineering"],
     },

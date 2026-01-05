@@ -83,7 +83,7 @@ export function SkillsSection() {
           </h2>
           <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Combining technical expertise with strategic thinking and leadership
+            A commitment to continuous learning, growth and improvement
           </p>
         </div>
 

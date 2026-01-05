@@ -176,7 +176,7 @@ export function HeroSection() {
                 <span className="relative z-10">Connect</span>
               </Button>
               <Button variant="outline" size="sm" className="group border hover:bg-foreground hover:text-background bg-transparent px-6 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-sm hover:scale-105 hover:shadow-lg transition-all duration-300" asChild>
-                <a href="/resume.pdf" download="Zalak_Rajvanshi_Resume.pdf">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="w-4 h-4 mr-1 group-hover:animate-bounce" />
                   Resume
                 </a>

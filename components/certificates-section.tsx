@@ -142,7 +142,7 @@ export function CertificatesSection() {
           </h2>
           <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Validated expertise through industry certifications and leadership roles
+            Recognition earned through effort and consistency
           </p>
         </div>
 

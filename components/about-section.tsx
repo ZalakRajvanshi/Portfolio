@@ -43,7 +43,7 @@ export function AboutSection() {
           </h2>
           <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Transforming ideas into intelligent solutions through innovation and leadership
+            Growth is earned through disciplined learning and consistent work
           </p>
         </div>
 

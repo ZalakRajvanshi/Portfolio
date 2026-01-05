@@ -125,7 +125,7 @@ export function EducationSection() {
           </h2>
           <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Building a strong foundation through continuous learning and growth
+            A foundation built through structured learning and discipline
           </p>
         </div>
 

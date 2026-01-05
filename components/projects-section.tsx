@@ -133,7 +133,7 @@ export function ProjectsSection() {
           </h2>
           <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Transforming complex challenges into intelligent systems through innovation
+            Transforming complex challenges into intelligent systems.
           </p>
         </div>
 

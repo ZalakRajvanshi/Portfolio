@@ -61,8 +61,8 @@ export function ProjectsSection() {
         "Converts handwritten notes into fully structured, editable, and searchable digital notes. Combines OCR, layout analysis, and semantic classification for document-level understanding.",
       image: "/projects/smart-notes.jpg",
       technologies: ["Python", "OCR", "Layout Analysis", "Computer Vision"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://github.com/ZalakRajvanshi/Smart-Notes-AI",
+      githubUrl: "https://github.com/ZalakRajvanshi/Smart-Notes-AI",
       category: "Document AI",
     },
     {

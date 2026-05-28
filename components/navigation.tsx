@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useLenis } from "lenis/react"
 import { Button } from "@/components/ui/button"
 import { Moon, Sun, Menu, X } from "lucide-react"
 
@@ -13,6 +14,7 @@ export function Navigation({ activeSection }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [theme, setTheme] = useState<"light" | "dark">("dark")
   const [scrollProgress, setScrollProgress] = useState(0)
+  const lenis = useLenis()
 
   const navItems = [
     { id: "hero", label: "Home" },
@@ -54,10 +56,13 @@ export function Navigation({ activeSection }: NavigationProps) {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
-    if (element) {
+    if (!element) return
+    if (lenis) {
+      lenis.scrollTo(element, { offset: -80 })
+    } else {
       element.scrollIntoView({ behavior: "smooth" })
-      setIsMobileMenuOpen(false)
     }
+    setIsMobileMenuOpen(false)
   }
 
   return (

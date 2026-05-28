@@ -2,6 +2,7 @@
 
 import { HeroAnimatedBackground } from "@/components/HeroAnimatedBackground"
 import { useEffect, useState, useCallback, useMemo } from "react"
+import { useLenis } from "lenis/react"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 import Image from "next/image"
@@ -12,6 +13,7 @@ export function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0)
   const [scrollY, setScrollY] = useState(0)
   const [imagesLoaded, setImagesLoaded] = useState(false)
+  const lenis = useLenis()
 
   const roles = useMemo(() => ["AI/ML Engineer", "IEEE Executive Officer - 2025", "GDG Content Lead", "AWS Volunteer", "Senior Curation Executive at IEEE SOU SB - 2026"], [])
   
@@ -75,15 +77,12 @@ export function HeroSection() {
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about")
-    if (aboutSection) {
-      const headerOffset = 80
-      const elementPosition = aboutSection.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      })
+    if (!aboutSection) return
+    if (lenis) {
+      lenis.scrollTo(aboutSection, { offset: -80 })
+    } else {
+      const offsetPosition = aboutSection.getBoundingClientRect().top + window.pageYOffset - 80
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" })
     }
   }
 
@@ -172,7 +171,7 @@ export function HeroSection() {
             </div>
             <p className="text-sm sm:text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-8 font-medium animate-fade-in-up px-4" style={{ animationDelay: '0.2s', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>Building AI and machine learning solutions that drive innovation and solve real-world challenges through strategic thinking and entrepreneurial vision.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-3 animate-fade-in-up px-4" style={{ animationDelay: '0.3s' }}>
-              <Button size="sm" className="group relative overflow-hidden bg-foreground hover:bg-foreground/90 text-background px-6 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-sm hover:scale-105 hover:shadow-lg transition-all duration-300" onClick={() => document.getElementById("contact")?.scrollIntoView({behavior: "smooth"})}>
+              <Button size="sm" className="group relative overflow-hidden bg-foreground hover:bg-foreground/90 text-background px-6 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-sm hover:scale-105 hover:shadow-lg transition-all duration-300" onClick={() => { const el = document.getElementById("contact"); if (!el) return; lenis ? lenis.scrollTo(el, { offset: -80 }) : el.scrollIntoView({ behavior: "smooth" }) }}>
                 <span className="relative z-10">Connect</span>
               </Button>
               <Button variant="outline" size="sm" className="group border hover:bg-foreground hover:text-background bg-transparent px-6 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-sm hover:scale-105 hover:shadow-lg transition-all duration-300" asChild>

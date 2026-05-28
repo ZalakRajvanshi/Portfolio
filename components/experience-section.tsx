@@ -1,6 +1,7 @@
 "use client"
 
 import { Reveal } from "@/components/reveal"
+import { Badge } from "@/components/ui/badge"
 
 interface ExperienceItem {
   id: number
@@ -27,74 +28,66 @@ export function ExperienceSection() {
   ]
 
   return (
-    <section className="exp-cinematic film-grain relative overflow-hidden text-white">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/60" />
-
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-28 sm:py-36 lg:px-8">
-        <Reveal>
-          <p className="mb-5 text-xs uppercase tracking-[0.4em] text-blue-300/80">Experience</p>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <h2
-            className="text-5xl font-light leading-[1.05] sm:text-6xl md:text-7xl"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
+    <section className="py-20 relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl md:text-4xl font-light mb-4">
             Where I{" "}
-            <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text italic text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Build
             </span>
           </h2>
-        </Reveal>
+          <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+            Applying AI and machine learning to real-world products
+          </p>
+        </div>
 
-        {experiences.map((exp) => (
-          <div key={exp.id} className="mt-16 sm:mt-24">
-            <Reveal delay={200}>
-              <div className="mb-6 flex items-center gap-5">
-                <span className="text-xs uppercase tracking-[0.3em] text-white/60">{exp.period}</span>
-                {exp.current && (
-                  <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-emerald-300">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-                    Current
-                  </span>
-                )}
-              </div>
-            </Reveal>
+        <div className="space-y-16">
+          {experiences.map((exp) => (
+            <div key={exp.id}>
+              <Reveal>
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{exp.period}</span>
+                  {exp.current && (
+                    <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-emerald-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      Current
+                    </span>
+                  )}
+                </div>
+              </Reveal>
 
-            <Reveal delay={300}>
-              <h3 className="text-3xl font-light leading-tight sm:text-5xl" style={{ fontFamily: "var(--font-playfair)" }}>
-                {exp.role}
-              </h3>
-            </Reveal>
+              <Reveal delay={100}>
+                <h3 className="text-3xl sm:text-4xl font-light text-foreground">{exp.role}</h3>
+              </Reveal>
 
-            <Reveal delay={380}>
-              <p className="mt-2 text-lg tracking-wide text-blue-200/90 sm:text-xl">{exp.company}</p>
-            </Reveal>
+              <Reveal delay={160}>
+                <p className="mt-1 text-lg font-medium text-accent">{exp.company}</p>
+              </Reveal>
 
-            <Reveal delay={460}>
-              <div className="my-8 h-px w-24 bg-gradient-to-r from-white/50 to-transparent" />
-            </Reveal>
+              <Reveal delay={220}>
+                <div className="my-6 h-px w-20 bg-foreground/20" />
+              </Reveal>
 
-            <Reveal delay={520}>
-              <p className="max-w-2xl text-base font-light leading-relaxed text-white/75 sm:text-lg">
-                {exp.description}
-              </p>
-            </Reveal>
+              <Reveal delay={280}>
+                <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground font-light">
+                  {exp.description}
+                </p>
+              </Reveal>
 
-            <Reveal delay={620}>
-              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-                {exp.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="border-b border-white/15 pb-1 text-sm uppercase tracking-[0.15em] text-white/55"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        ))}
+              <Reveal delay={360}>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {exp.skills.map((skill) => (
+                    <Badge key={skill} variant="secondary" className="text-xs">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

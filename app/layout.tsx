@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Playfair_Display, Source_Sans_3 } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SmoothScroll } from "@/components/smooth-scroll"
 import { seoConfig } from "@/lib/seo-config"
 
 const playfair = Playfair_Display({
@@ -107,7 +108,7 @@ export default function RootLayout({
           This setup requires ThemeProvider to handle SSR correctly.
         */}
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          {children}
+          <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

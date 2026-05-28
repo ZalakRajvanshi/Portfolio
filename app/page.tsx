@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useLenis } from "lenis/react"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { ExperienceSection } from "@/components/experience-section"
@@ -19,6 +20,7 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
   const [isHeroVisible, setIsHeroVisible] = useState(true)
+  const lenis = useLenis()
 
   const handleLoadingComplete = () => {
     setIsLoading(false)
@@ -88,7 +90,7 @@ export default function Home() {
 
       {!isHeroVisible && (
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => (lenis ? lenis.scrollTo(0) : window.scrollTo({ top: 0, behavior: "smooth" }))}
           className="fixed bottom-6 right-6 z-40 w-12 h-12 bg-foreground text-background rounded-full flex items-center justify-center hover:bg-foreground/90 transition-all duration-300 shadow-lg hover:shadow-xl"
           aria-label="Scroll to top"
         >

@@ -68,7 +68,7 @@ export function ProjectsSection() {
       title: "Gitlane",
       description:
         "Developer tool that generates AI-powered commit messages, automatically detects secrets in your code, and acts as a streak/sprint coach to keep your momentum going.",
-      image: "/placeholder.svg",
+      image: "/projects/gitlane.png",
       technologies: ["Python", "LLMs", "Git", "Automation"],
       liveUrl: "https://github.com/ZalakRajvanshi/Gitlane",
       githubUrl: "https://github.com/ZalakRajvanshi/Gitlane",

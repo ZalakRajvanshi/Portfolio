@@ -385,15 +385,15 @@
 .reveal {
   opacity: 0;
   transition:
-    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 0.9s ease,
-    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1s ease,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, filter, transform;
 }
 
 .reveal-blur {
-  filter: blur(12px);
-  transform: translateY(28px);
+  filter: blur(14px);
+  transform: translateY(44px);
 }
 
 .reveal-left {
@@ -408,6 +408,10 @@
   transform: perspective(900px) rotateX(34deg) translateY(64px) scale(0.94);
   transform-origin: center top;
   transition-duration: 1.1s;
+}
+
+.reveal-scale {
+  transform: scale(0.94) translateY(20px);
 }
 
 .reveal-in {

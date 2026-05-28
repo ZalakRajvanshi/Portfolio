@@ -29,46 +29,46 @@ export function EducationSection() {
           </p>
         </Reveal>
 
-        <Reveal delay={120} variant="flip">
-          <div className="edu-card relative mx-auto max-w-3xl overflow-hidden rounded-2xl border border-border bg-card/60 p-8 backdrop-blur-sm sm:p-12">
+        <Reveal delay={120} variant="scale">
+          <div className="edu-card relative mx-auto max-w-4xl overflow-hidden rounded-2xl border border-border bg-card p-10 sm:p-16">
             {/* decorative corner brackets */}
-            <span className="pointer-events-none absolute left-4 top-4 h-5 w-5 border-l-2 border-t-2 border-accent/40" />
-            <span className="pointer-events-none absolute right-4 top-4 h-5 w-5 border-r-2 border-t-2 border-accent/40" />
-            <span className="pointer-events-none absolute bottom-4 left-4 h-5 w-5 border-b-2 border-l-2 border-accent/40" />
-            <span className="pointer-events-none absolute bottom-4 right-4 h-5 w-5 border-b-2 border-r-2 border-accent/40" />
+            <span className="pointer-events-none absolute left-6 top-6 h-7 w-7 border-l-2 border-t-2 border-accent/40" />
+            <span className="pointer-events-none absolute right-6 top-6 h-7 w-7 border-r-2 border-t-2 border-accent/40" />
+            <span className="pointer-events-none absolute bottom-6 left-6 h-7 w-7 border-b-2 border-l-2 border-accent/40" />
+            <span className="pointer-events-none absolute bottom-6 right-6 h-7 w-7 border-b-2 border-r-2 border-accent/40" />
 
             {/* header */}
-            <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-pink-500/20">
-                <GraduationCap className="h-7 w-7 text-accent" />
+            <div className="flex items-center gap-5">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-pink-500/20">
+                <GraduationCap className="h-10 w-10 text-accent" />
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Degree</p>
-                <h3 className="text-2xl font-light leading-tight text-foreground sm:text-3xl">Bachelor of Engineering</h3>
+                <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground">Degree</p>
+                <h3 className="text-3xl font-light leading-tight text-foreground sm:text-5xl">Bachelor of Engineering</h3>
               </div>
             </div>
 
-            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+            <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
 
             {/* structured field grid */}
-            <dl className="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2">
+            <dl className="grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
               {fields.map((f) => (
                 <div key={f.label}>
-                  <dt className="mb-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">{f.label}</dt>
-                  <dd className={`text-base font-light ${f.accent ? "text-accent" : "text-foreground"}`}>{f.value}</dd>
+                  <dt className="mb-1 text-sm uppercase tracking-[0.2em] text-muted-foreground">{f.label}</dt>
+                  <dd className={`text-lg font-light ${f.accent ? "text-accent" : "text-foreground"}`}>{f.value}</dd>
                 </div>
               ))}
             </dl>
 
-            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+            <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
 
             {/* key areas */}
-            <p className="mb-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">Key Areas</p>
-            <div className="flex flex-wrap gap-2">
+            <p className="mb-4 text-sm uppercase tracking-[0.2em] text-muted-foreground">Key Areas</p>
+            <div className="flex flex-wrap gap-2.5">
               {skills.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:text-white hover:[background:linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6)]"
+                  className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:text-white hover:[background:linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6)]"
                 >
                   {skill}
                 </span>
@@ -99,6 +99,7 @@ export function EducationSection() {
           transform: skewX(-18deg);
           transition: left 0.75s ease;
           pointer-events: none;
+          z-index: 1;
         }
         .edu-card:hover::before {
           left: 150%;

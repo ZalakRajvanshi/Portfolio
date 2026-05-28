@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useLenis } from "lenis/react"
+import { Breathe } from "@/components/breathe"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { ExperienceSection } from "@/components/experience-section"
@@ -77,15 +78,21 @@ export default function Home() {
         </section>
 
         <section id="about">
-          <AboutSection />
+          <Breathe>
+            <AboutSection />
+          </Breathe>
         </section>
 
         <section id="experience">
-          <ExperienceSection />
+          <Breathe>
+            <ExperienceSection />
+          </Breathe>
         </section>
 
         <section id="education">
-          <EducationSection />
+          <Breathe>
+            <EducationSection />
+          </Breathe>
         </section>
 
         <section id="projects">
@@ -93,15 +100,21 @@ export default function Home() {
         </section>
 
         <section id="skills">
-          <SkillsSection />
+          <Breathe>
+            <SkillsSection />
+          </Breathe>
         </section>
 
         <section id="certificates">
-          <CertificatesSection />
+          <Breathe>
+            <CertificatesSection />
+          </Breathe>
         </section>
 
         <section id="contact">
-          <ContactSection />
+          <Breathe>
+            <ContactSection />
+          </Breathe>
         </section>
       </main>
 

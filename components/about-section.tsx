@@ -1,156 +1,189 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Reveal } from "@/components/reveal"
+import { Button } from "@/components/ui/button"
+import { ArrowDown, ArrowRight } from "lucide-react"
+import { useLenis } from "lenis/react"
+
+const PROFILE_IMAGE = "/profile/professional-developer-portrait.png"
 
 export function AboutSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [photoRevealed, setPhotoRevealed] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const lenis = useLenis()
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          setTimeout(() => setPhotoRevealed(true), 500)
-        }
-      },
-      { threshold: 0.05 },
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+  const goTo = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    if (lenis) {
+      lenis.scrollTo(el, { offset: -80 })
+    } else {
+      el.scrollIntoView({ behavior: "smooth" })
     }
+  }
 
-    return () => observer.disconnect()
-  }, [])
-
-  const skills = [
-    "Technical Excellence",
-    "Strategic Thinking",
-    "Confidence & Public Speaking",
-    "Team Building & Leadership",
+  const teasers = [
+    {
+      label: "Experience",
+      text: "AI Intern at The Product Folks, building AI and machine learning products.",
+      target: "experience",
+    },
+    {
+      label: "My Work",
+      text: "AI/ML projects spanning computer vision, NLP, and developer tooling.",
+      target: "projects",
+    },
   ]
 
   return (
-    <section ref={sectionRef} className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-light mb-4">
-            The <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Journey</span>
-          </h2>
-          <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Growth is earned through disciplined learning and consistent work
-          </p>
+    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden py-24 lg:py-0">
+      {/* Full-height cutout portrait, centered, with cinematic treatment (desktop) */}
+      <div className="pointer-events-none absolute inset-0 hidden items-end justify-center lg:flex">
+        <div className="about-spotlight absolute left-1/2 top-[42%] h-[60%] w-[42%] rounded-full blur-3xl" />
+        <img
+          src={PROFILE_IMAGE}
+          alt="Zalak Rajvanshi"
+          className="about-portrait relative h-[85%] max-h-[620px] w-auto max-w-none object-contain object-bottom"
+        />
+      </div>
+
+      {/* Subtle film grain */}
+      <div className="about-grain" />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        {/* Left: heading + intro + CTA */}
+        <div className="max-w-md space-y-6 lg:max-w-[22rem]">
+          <Reveal>
+            <h2 className="text-4xl font-light leading-[1.1] sm:text-5xl xl:text-6xl">
+              I'm Zalak,
+              <br />
+              an{" "}
+              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text font-normal text-transparent">
+                AI/ML Engineer
+              </span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <p className="text-base font-light leading-relaxed text-muted-foreground">
+              A student leader who pairs technical depth with entrepreneurial vision, building AI and machine learning
+              solutions that solve real problems across IEEE WIE, GDG, and the AWS community.
+            </p>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <Button
+              onClick={() => goTo("experience")}
+              variant="outline"
+              className="group rounded-full border-foreground/20 bg-transparent px-6 text-xs uppercase tracking-[0.2em] hover:bg-foreground hover:text-background"
+            >
+              Learn More
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Button>
+          </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Left content */}
-          <div className="space-y-6">
-            <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              <p className={`transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-              style={{ transitionDelay: "100ms" }}>
-                I am a passionate student leader combining technical expertise with entrepreneurial vision. My journey spans leadership roles as Vice Chair of IEEE SOU WIE SB AG, Content Lead at GDG On Campus SOU, AWS Community Volunteer, and Senior Curation Executive Officer at IEEE SOU SB, all while exploring innovation and building impactful solutions.
-              </p>
+        {/* Portrait inline (mobile only) */}
+        <div className="relative mx-auto w-full max-w-xs lg:hidden">
+          <div className="about-spotlight absolute left-1/2 top-[40%] h-[55%] w-[80%] rounded-full blur-3xl" />
+          <img src={PROFILE_IMAGE} alt="Zalak Rajvanshi" className="about-portrait relative h-auto w-full object-contain" />
+        </div>
 
-              <p className={`transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-              style={{ transitionDelay: "200ms" }}>
-                As Vice Chair of IEEE SOU WIE SB AG, I spearhead initiatives to empower women in engineering and promote diversity in technology. As GDG Content Lead, I develop engaging technical content that supports developer communities in growing their skills.
-              </p>
-
-              <p className={`transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-              style={{ transitionDelay: "300ms" }}>
-                My AWS community volunteering experience has deepened my understanding of cloud technologies and scalable solutions. As Senior Curation Executive Officer at IEEE SOU SB, I leverage both technical knowledge and strategic thinking to deliver impactful results.
-              </p>
-
-              <p className={`transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-              style={{ transitionDelay: "400ms" }}>
-                I am passionate about AI and machine learning technologies, committed to harnessing their power to solve practical problems while building sustainable, innovative solutions.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-lg sm:text-xl font-semibold text-primary">Key Strengths</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <Badge key={skill} variant="secondary" className="text-xs sm:text-sm">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right content */}
-          <div className="space-y-6">
-            <div className="relative">
-              <div className={`w-full max-w-sm mx-auto aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border border-border/50 transition-all duration-1000 ${
-                photoRevealed ? "opacity-100 scale-100" : "opacity-0 scale-95"
-              }`}>
-                <img
-                  src="/profile/professional-developer-portrait.jpeg"
-                  alt="Zalak Rajvanshi"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              
-              {/* Floating Achievement Cards */}
-              <div className={`absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-background border border-border/50 rounded-lg p-2 sm:p-3 shadow-lg transition-all duration-700 ${
-                photoRevealed ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0 translate-x-4 -translate-y-4"
-              }`} style={{ willChange: 'transform, opacity' }}>
-                <div className="text-center">
-                  <div className="text-base sm:text-lg font-medium text-blue-500">9.56</div>
-                  <div className="text-xs text-muted-foreground">CGPA</div>
-                </div>
-              </div>
-              
-              <div className={`absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-background border border-border/50 rounded-lg p-2 sm:p-3 shadow-lg transition-all duration-700 ${
-                photoRevealed ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0 -translate-x-4 translate-y-4"
-              }`} style={{ willChange: 'transform, opacity' }}>
-                <div className="text-center">
-                  <div className="text-base sm:text-lg font-medium text-purple-500">AIML</div>
-                  <div className="text-xs text-muted-foreground">Focus</div>
-                </div>
-              </div>
-            </div>
-
-            <Card className="p-6 sm:p-8 bg-card/50 backdrop-blur-sm border-border/50">
-              <div className="space-y-4">
-                <h4 className="font-semibold text-primary text-base sm:text-lg">What I Do</h4>
-                <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
-                    Building AI/ML solutions that solve real-world problems
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
-                    Leading tech communities and empowering diverse talent
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
-                    Creating impactful content for developer ecosystems
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
-                    Driving innovation through strategic thinking and execution
-                  </li>
-                </ul>
-              </div>
-            </Card>
-          </div>
+        {/* Right: section teasers */}
+        <div className="max-w-md space-y-8 lg:max-w-[18rem]">
+          {teasers.map((t, i) => (
+            <Reveal key={t.label} delay={200 + i * 120}>
+              <button onClick={() => goTo(t.target)} className="group block w-full text-left">
+                <p className="mb-2 text-xs uppercase tracking-[0.25em] text-accent">{t.label}</p>
+                <p className="mb-3 text-sm font-light leading-relaxed text-muted-foreground">{t.text}</p>
+                <span className="inline-flex items-center gap-1 text-sm text-foreground transition-all duration-300 group-hover:gap-2">
+                  View more
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </button>
+            </Reveal>
+          ))}
         </div>
       </div>
+
+      {/* Bottom-left scroll cue */}
+      <button
+        onClick={() => goTo("experience")}
+        aria-label="Scroll to experience"
+        className="absolute bottom-8 left-4 z-20 hidden h-12 w-12 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg transition-transform hover:scale-110 sm:left-8 lg:flex"
+      >
+        <ArrowDown className="h-5 w-5 animate-bounce" />
+      </button>
+
+      <style jsx>{`
+        .about-portrait {
+          filter: contrast(1.06) saturate(1.08) brightness(1.02);
+          -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
+          mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
+          animation: about-portrait-in 1.1s ease-out both;
+        }
+        @keyframes about-portrait-in {
+          from {
+            opacity: 0;
+            transform: translateY(24px) scale(1.04);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        .about-spotlight {
+          transform: translate(-50%, -50%);
+          background: radial-gradient(
+            circle,
+            rgba(99, 102, 241, 0.32) 0%,
+            rgba(139, 92, 246, 0.18) 36%,
+            rgba(236, 72, 153, 0.07) 55%,
+            transparent 70%
+          );
+          animation: about-spotlight-pulse 7s ease-in-out infinite;
+        }
+        @keyframes about-spotlight-pulse {
+          0%,
+          100% {
+            opacity: 0.85;
+            transform: translate(-50%, -50%) scale(1);
+          }
+          50% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.07);
+          }
+        }
+        .about-grain {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          pointer-events: none;
+          opacity: 0.06;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          background-repeat: repeat;
+          animation: about-grain-shift 0.6s steps(3) infinite;
+        }
+        @keyframes about-grain-shift {
+          0% {
+            background-position: 0 0;
+          }
+          33% {
+            background-position: -7px 3px;
+          }
+          66% {
+            background-position: 4px -6px;
+          }
+          100% {
+            background-position: 0 0;
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .about-portrait,
+          .about-spotlight,
+          .about-grain {
+            animation: none;
+          }
+        }
+      `}</style>
     </section>
   )
 }

@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
 interface Project {
@@ -16,7 +15,6 @@ interface Project {
 }
 
 export function ProjectsSection() {
-  const [isLoaded, setIsLoaded] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -79,15 +77,13 @@ export function ProjectsSection() {
   ]
 
   useEffect(() => {
-    setIsLoaded(true)
-    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
         }
       },
-      { threshold: 0.05 }
+      { threshold: 0.05 },
     )
 
     if (sectionRef.current) {
@@ -113,12 +109,16 @@ export function ProjectsSection() {
       </div>
 
       <div className="c-hotels">
-        {/* Centered Heading */}
-        <div className={`text-center mb-12 sm:mb-16 transition-all duration-800 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}>
+        <div
+          className={`text-center mb-12 sm:mb-16 transition-all duration-800 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-light mb-4">
-            Building <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Solutions</span>
+            Building{" "}
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Solutions
+            </span>
           </h2>
           <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
@@ -126,14 +126,9 @@ export function ProjectsSection() {
           </p>
         </div>
 
-
-        {/* Project Cards List */}
         <ul className="c-hotels__list">
-          {projects.map((project, index) => (
-            <article
-              key={project.id}
-              className="c-hotels__item bg-white dark:bg-[#0e0e0e] project-card"
-            >
+          {projects.map((project) => (
+            <article key={project.id} className="c-hotels__item bg-white dark:bg-[#0e0e0e] project-card">
               <figure className="c-hotels__item-figure">
                 <img src={project.image || "/placeholder.svg"} alt={project.title} />
               </figure>
@@ -153,9 +148,7 @@ export function ProjectsSection() {
                     <ArrowRight className="w-4 h-4 ml-2 transform transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                   </a>
                 ) : (
-                  <span className="c-hotels__item-link opacity-50 cursor-not-allowed">
-                    Coming Soon
-                  </span>
+                  <span className="c-hotels__item-link opacity-50 cursor-not-allowed">Coming Soon</span>
                 )}
               </div>
             </article>
@@ -164,11 +157,6 @@ export function ProjectsSection() {
       </div>
 
       <style jsx>{`
-        @keyframes gradient-flow {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-
         .c-hotels {
           width: min(1200px, 90%);
           margin: 0 auto;
@@ -277,17 +265,15 @@ export function ProjectsSection() {
           font-weight: 300;
           color: hsl(var(--muted-foreground));
         }
-        
+
         .project-card {
           transition: transform 0.3s ease;
         }
-        
+
         @media (hover: hover) and (pointer: fine) {
           .project-card:hover {
             transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
           }
-        }nt-weight: 300;
-          color: hsl(var(--muted-foreground));
         }
 
         .c-hotels__item-link {
@@ -308,10 +294,10 @@ export function ProjectsSection() {
         }
 
         @keyframes in-n-out {
-          0%, 75% {
+          0%,
+          75% {
             scale: 100%;
           }
-
           100% {
             scale: 85%;
           }

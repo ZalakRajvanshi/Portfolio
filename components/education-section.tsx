@@ -1,95 +1,118 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Reveal } from "@/components/reveal"
 import { GraduationCap } from "lucide-react"
 
 export function EducationSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const fields = [
+    { label: "Field of Study", value: "Computer Engineering", accent: true },
+    { label: "Duration", value: "2022 to 2026" },
+    { label: "Institution", value: "SOCET, Silver Oak University" },
+    { label: "Focus", value: "AI / Machine Learning" },
+  ]
 
   const skills = ["AIML", "Data Structures", "Algorithms", "Software Engineering"]
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.1 },
-    )
-
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section ref={sectionRef} className="py-20 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-3xl md:text-4xl font-light mb-4">
+    <section className="relative overflow-hidden py-20">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mb-12 text-center sm:mb-16">
+          <h2 className="mb-4 text-3xl font-light md:text-4xl">
             Growing{" "}
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Forward
             </span>
           </h2>
-          <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+          <div className="mx-auto mb-6 h-px w-16 bg-foreground/20" />
+          <p className="mx-auto max-w-2xl text-lg font-light text-muted-foreground">
             A strong academic foundation in computer engineering
           </p>
-        </div>
+        </Reveal>
 
-        <div
-          className={`transition-all duration-700 delay-150 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <Card className="group relative overflow-hidden p-6 sm:p-10 border border-border/60 hover:border-accent/50 transition-all duration-500 hover:shadow-2xl">
-            <div className="absolute -bottom-24 -left-24 w-56 h-56 bg-gradient-to-br from-emerald-500/10 via-blue-500/10 to-purple-500/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700" />
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-400 via-blue-500 to-purple-600" />
+        <Reveal delay={120} variant="flip">
+          <div className="edu-card relative mx-auto max-w-3xl overflow-hidden rounded-2xl border border-border bg-card/60 p-8 backdrop-blur-sm sm:p-12">
+            {/* decorative corner brackets */}
+            <span className="pointer-events-none absolute left-4 top-4 h-5 w-5 border-l-2 border-t-2 border-accent/40" />
+            <span className="pointer-events-none absolute right-4 top-4 h-5 w-5 border-r-2 border-t-2 border-accent/40" />
+            <span className="pointer-events-none absolute bottom-4 left-4 h-5 w-5 border-b-2 border-l-2 border-accent/40" />
+            <span className="pointer-events-none absolute bottom-4 right-4 h-5 w-5 border-b-2 border-r-2 border-accent/40" />
 
-            <div className="relative flex flex-col sm:flex-row sm:items-center gap-8">
-              <div className="flex items-start gap-5 flex-1">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <GraduationCap className="w-7 h-7 text-accent" />
-                </div>
-                <div className="space-y-3">
-                  <div>
-                    <h3 className="text-2xl font-light text-foreground">Bachelor of Engineering</h3>
-                    <p className="text-accent font-medium">Computer Engineering</p>
-                    <p className="text-muted-foreground font-light text-sm mt-1">SOCET - Silver Oak University</p>
-                  </div>
-                  <Badge variant="outline" className="font-light">
-                    2022 - 2026
-                  </Badge>
-                  <p className="text-muted-foreground leading-relaxed font-light">
-                    Pursuing Computer Engineering with a hands-on focus on AI/ML, maintaining strong academic
-                    performance while building innovative technology solutions.
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {skills.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+            {/* header */}
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-pink-500/20">
+                <GraduationCap className="h-7 w-7 text-accent" />
               </div>
-
-              <div className="flex-shrink-0 sm:border-l sm:border-border/50 sm:pl-8 flex sm:flex-col items-center justify-center gap-2 self-stretch">
-                <div className="text-4xl sm:text-5xl font-light bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  9.56
-                </div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider">CGPA / 10</div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Degree</p>
+                <h3 className="text-2xl font-light leading-tight text-foreground sm:text-3xl">Bachelor of Engineering</h3>
               </div>
             </div>
-          </Card>
-        </div>
+
+            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+
+            {/* structured field grid */}
+            <dl className="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2">
+              {fields.map((f) => (
+                <div key={f.label}>
+                  <dt className="mb-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">{f.label}</dt>
+                  <dd className={`text-base font-light ${f.accent ? "text-accent" : "text-foreground"}`}>{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+
+            {/* key areas */}
+            <p className="mb-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">Key Areas</p>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:text-white hover:[background:linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6)]"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
+
+      <style jsx>{`
+        .edu-card {
+          transition:
+            transform 0.45s ease,
+            box-shadow 0.45s ease;
+        }
+        .edu-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.4);
+        }
+        .edu-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -120%;
+          width: 55%;
+          height: 100%;
+          background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+          transform: skewX(-18deg);
+          transition: left 0.75s ease;
+          pointer-events: none;
+        }
+        .edu-card:hover::before {
+          left: 150%;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .edu-card,
+          .edu-card::before {
+            transition: none;
+          }
+          .edu-card:hover {
+            transform: none;
+          }
+        }
+      `}</style>
     </section>
   )
 }

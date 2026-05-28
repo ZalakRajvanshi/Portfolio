@@ -25,3 +25,24 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env.local
+.env.production
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+dist/
+build/
+.idea/
+.vscode/
+*.sqlite
+*.db
+credentials.json
+secrets.json
+serviceAccountKey.json

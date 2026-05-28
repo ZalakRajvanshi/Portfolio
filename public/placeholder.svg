@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Project preview coming soon">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="50%" stop-color="#16213e"/>
+      <stop offset="100%" stop-color="#0f3460"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g fill="none" stroke="#3b82f6" stroke-opacity="0.08" stroke-width="1">
+    <path d="M0 150 H800 M0 300 H800 M0 450 H800 M150 0 V600 M300 0 V600 M450 0 V600 M600 0 V600"/>
+  </g>
+  <g transform="translate(400 270)" fill="none" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-70,-40 -110,0 -70,40"/>
+    <polyline points="70,-40 110,0 70,40"/>
+    <line x1="20" y1="-55" x2="-20" y2="55"/>
+  </g>
+  <text x="400" y="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="30" font-weight="300" letter-spacing="6" text-anchor="middle" fill="#cbd5e1">PROJECT PREVIEW</text>
+</svg>

@@ -87,6 +87,50 @@ export function ProjectsSection() {
       githubUrl: "https://github.com/ZalakRajvanshi/SmartTaskAI",
       category: "Productivity App",
     },
+    {
+      id: 7,
+      title: "Gitlane",
+      description:
+        "Developer tool that generates AI-powered commit messages, automatically detects secrets in your code, and acts as a streak/sprint coach to keep your momentum going.",
+      image: "/placeholder.svg",
+      technologies: ["Python", "LLMs", "Git", "Automation"],
+      liveUrl: "https://github.com/ZalakRajvanshi/Gitlane",
+      githubUrl: "https://github.com/ZalakRajvanshi/Gitlane",
+      category: "Developer Tool",
+    },
+    {
+      id: 8,
+      title: "Arova - AI Communication Coach",
+      description:
+        "AI-powered communication training for teams, delivering daily roleplay scenarios with instant, actionable feedback to sharpen real-world conversation skills.",
+      image: "/placeholder.svg",
+      technologies: ["JavaScript", "React", "LLMs", "AI"],
+      liveUrl: "https://com-chatbot-three.vercel.app",
+      githubUrl: "https://github.com/ZalakRajvanshi/arova-tpf-chatbot",
+      category: "AI Project",
+    },
+    {
+      id: 9,
+      title: "AI Blog Writer",
+      description:
+        "Automated blog-writing pipeline built with n8n and an LLM that turns topics and prompts into publish-ready articles, end to end.",
+      image: "/placeholder.svg",
+      technologies: ["n8n", "LLMs", "Automation", "NLP"],
+      liveUrl: "https://github.com/ZalakRajvanshi/AI-Blog-Writer-n8n",
+      githubUrl: "https://github.com/ZalakRajvanshi/AI-Blog-Writer-n8n",
+      category: "Automation",
+    },
+    {
+      id: 10,
+      title: "WhatsApp Automation",
+      description:
+        "Python automation that streamlines WhatsApp messaging workflows—scheduling and sending messages programmatically to cut out repetitive manual effort.",
+      image: "/placeholder.svg",
+      technologies: ["Python", "Automation"],
+      liveUrl: "https://github.com/ZalakRajvanshi/Whatsapp-automation",
+      githubUrl: "https://github.com/ZalakRajvanshi/Whatsapp-automation",
+      category: "Automation",
+    },
   ]
 
   useEffect(() => {

@@ -13,7 +13,7 @@ export function HeroSection() {
   const [scrollY, setScrollY] = useState(0)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
-  const roles = useMemo(() => ["IEEE Executive Officer", "GDG Content Lead", "AWS Volunteer", "Senior Curation Executive at IEEE SOU SB"], [])
+  const roles = useMemo(() => ["AI/ML Engineer", "IEEE Executive Officer", "GDG Content Lead — 2024", "Vice Chair, IEEE SOU WIE SB AG — 2025", "AWS Volunteer", "Senior Curation Executive at IEEE SOU SB"], [])
   
   const workImages = useMemo(() => [
     {
@@ -46,8 +46,8 @@ export function HeroSection() {
     const timer = setTimeout(() => setIsLoaded(true), 300)
 
     const roleInterval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % 4)
-      setCurrentImage((prev) => (prev + 1) % 4)
+      setCurrentRole((prev) => (prev + 1) % roles.length)
+      setCurrentImage((prev) => (prev + 1) % workImages.length)
     }, 3000)
 
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -71,7 +71,7 @@ export function HeroSection() {
       clearInterval(roleInterval)
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [handleScroll, workImages])
+  }, [handleScroll, workImages, roles])
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about")

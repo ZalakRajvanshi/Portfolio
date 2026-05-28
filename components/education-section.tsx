@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { GraduationCap, Award, BookOpen } from "lucide-react"
+import { GraduationCap, Award, BookOpen, Briefcase } from "lucide-react"
 
 interface TimelineItem {
   id: number
@@ -11,7 +11,7 @@ interface TimelineItem {
   title: string
   institution: string
   description: string
-  type: "education" | "certification" | "course"
+  type: "education" | "certification" | "course" | "experience"
   skills?: string[]
 }
 
@@ -23,6 +23,16 @@ export function EducationSection() {
 
   const timelineData: TimelineItem[] = [
     {
+      id: 0,
+      year: "2026 - Present",
+      title: "AI Intern",
+      institution: "The Product Folks",
+      description:
+        "Building and deploying AI/ML solutions—developing intelligent features, prototypes, and data-driven tools for real-world products.",
+      type: "experience",
+      skills: ["AI/ML", "Python", "LLMs", "Problem Solving"],
+    },
+    {
       id: 1,
       year: "2022-2026",
       title: "Bachelor of Engineering (Computer Engineering)",
@@ -31,26 +41,6 @@ export function EducationSection() {
         "Currently pursuing Bachelor's in Computer Engineering with Hands-on experience in AI/ML. Maintaining excellent academic performance with focus on innovative technology solutions.",
       type: "education",
       skills: ["AIML", "Data Structures", "Algorithms", "Software Engineering"],
-    },
-    {
-      id: 2,
-      year: "2022",
-      title: "Higher Secondary (12th)",
-      institution: "CBSE",
-      description:
-        "Completed Higher Secondary Certificate, building strong foundation in science and mathematics.",
-      type: "certification",
-      skills: ["Mathematics", "Physics", "Chemistry", "Computer Science"],
-    },
-    {
-      id: 3,
-      year: "2020",
-      title: "Secondary School (10th)",
-      institution: "CBSE",
-      description:
-        "Completed Secondary School Certificate, establishing fundamental academic excellence.",
-      type: "course",
-      skills: ["Mathematics", "Science", "English", "Social Studies"],
     },
   ]
 
@@ -92,6 +82,8 @@ export function EducationSection() {
 
   const getIcon = (type: string) => {
     switch (type) {
+      case "experience":
+        return <Briefcase className="w-5 h-5" />
       case "education":
         return <GraduationCap className="w-5 h-5" />
       case "certification":
@@ -105,6 +97,8 @@ export function EducationSection() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
+      case "experience":
+        return "bg-gradient-to-r from-amber-400 via-orange-500 to-pink-500"
       case "education":
         return "bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500"
       case "certification":
@@ -125,7 +119,7 @@ export function EducationSection() {
           </h2>
           <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            A foundation built through structured learning and discipline
+            Hands-on experience built on a strong academic foundation
           </p>
         </div>
 

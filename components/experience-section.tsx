@@ -11,7 +11,7 @@ interface ExperienceItem {
   current?: boolean
   description: string
   skills: string[]
-}
+} 
 
 export function ExperienceSection() {
   const experiences: ExperienceItem[] = [

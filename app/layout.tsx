@@ -43,21 +43,12 @@ export const metadata: Metadata = {
     title: seoConfig.title,
     description: seoConfig.description,
     siteName: "Zalak Rajvanshi Portfolio",
-    images: [
-      {
-        url: seoConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: "Zalak Rajvanshi - AI/ML Engineer Portfolio",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: seoConfig.title,
     description: seoConfig.description,
     creator: seoConfig.twitterHandle,
-    images: [seoConfig.ogImage],
   },
   robots: {
     index: true,

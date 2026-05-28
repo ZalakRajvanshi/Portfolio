@@ -133,7 +133,7 @@ export function ContactSection() {
           <Card className="p-6 sm:p-8">
             <div className="mb-6">
               <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-2">Let's Talk</h3>
-              <p className="text-sm sm:text-base text-muted-foreground font-light">Got an opportunity, want to collaborate, or need help with AI/ML? Drop me a message—I'd love to connect!</p>
+              <p className="text-sm sm:text-base text-muted-foreground font-light">Got an opportunity, want to collaborate, or need help with AI/ML? Drop me a message. I'd love to connect!</p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">

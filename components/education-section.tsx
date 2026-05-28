@@ -3,193 +3,93 @@
 import { useEffect, useRef, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { GraduationCap, Award, BookOpen, Briefcase } from "lucide-react"
-
-interface TimelineItem {
-  id: number
-  year: string
-  title: string
-  institution: string
-  description: string
-  type: "education" | "certification" | "course" | "experience"
-  skills?: string[]
-}
+import { GraduationCap } from "lucide-react"
 
 export function EducationSection() {
-  const [visibleItems, setVisibleItems] = useState<number[]>([])
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  const timelineData: TimelineItem[] = [
-    {
-      id: 0,
-      year: "2026 - Present",
-      title: "AI Intern",
-      institution: "The Product Folks",
-      description:
-        "Building and deploying AI/ML solutions—developing intelligent features, prototypes, and data-driven tools for real-world products.",
-      type: "experience",
-      skills: ["AI/ML", "Python", "LLMs", "Problem Solving"],
-    },
-    {
-      id: 1,
-      year: "2022-2026",
-      title: "Bachelor of Engineering (Computer Engineering)",
-      institution: "SOCET - Silver Oak University",
-      description:
-        "Currently pursuing Bachelor's in Computer Engineering with Hands-on experience in AI/ML. Maintaining excellent academic performance with focus on innovative technology solutions.",
-      type: "education",
-      skills: ["AIML", "Data Structures", "Algorithms", "Software Engineering"],
-    },
-  ]
+  const skills = ["AIML", "Data Structures", "Algorithms", "Software Engineering"]
 
   useEffect(() => {
-    const sectionObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
+        if (entry.isIntersecting) setIsVisible(true)
       },
-      { threshold: 0.05 }
+      { threshold: 0.1 },
     )
 
-    if (sectionRef.current) {
-      sectionObserver.observe(sectionRef.current)
-    }
-
-    const observers = itemRefs.current.map((ref, index) => {
-      if (!ref) return null
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setVisibleItems((prev) => [...prev, index])
-          }
-        },
-        { threshold: 0.15 },
-      )
-
-      observer.observe(ref)
-      return observer
-    })
-
-    return () => {
-      sectionObserver.disconnect()
-      observers.forEach((observer) => observer?.disconnect())
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
   }, [])
 
-  const getIcon = (type: string) => {
-    switch (type) {
-      case "experience":
-        return <Briefcase className="w-5 h-5" />
-      case "education":
-        return <GraduationCap className="w-5 h-5" />
-      case "certification":
-        return <Award className="w-5 h-5" />
-      case "course":
-        return <BookOpen className="w-5 h-5" />
-      default:
-        return <GraduationCap className="w-5 h-5" />
-    }
-  }
-
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case "experience":
-        return "bg-gradient-to-r from-amber-400 via-orange-500 to-pink-500"
-      case "education":
-        return "bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500"
-      case "certification":
-        return "bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600"
-      case "course":
-        return "bg-gradient-to-r from-purple-500 to-pink-500"
-      default:
-        return "bg-accent"
-    }
-  }
-
   return (
-    <section ref={sectionRef} id="education" className="py-20">
+    <section ref={sectionRef} className="py-20 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-12 sm:mb-16 transition-all duration-800 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div
+          className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-light mb-4">
-            Growing <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Forward</span>
+            Growing{" "}
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Forward
+            </span>
           </h2>
           <div className="w-16 h-px bg-foreground/20 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Hands-on experience built on a strong academic foundation
+            A strong academic foundation in computer engineering
           </p>
         </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+        <div
+          className={`transition-all duration-700 delay-150 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <Card className="group relative overflow-hidden p-6 sm:p-10 border border-border/60 hover:border-accent/50 transition-all duration-500 hover:shadow-2xl">
+            <div className="absolute -bottom-24 -left-24 w-56 h-56 bg-gradient-to-br from-emerald-500/10 via-blue-500/10 to-purple-500/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700" />
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-400 via-blue-500 to-purple-600" />
 
-          <div className="space-y-12">
-            {timelineData.map((item, index) => (
-              <div
-                key={item.id}
-                ref={(el) => { itemRefs.current[index] = el; }}
-                className={`relative flex items-start gap-8 transition-all duration-800 ${
-                  visibleItems.includes(index) ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                {/* Timeline dot */}
-                <div
-                  className={`relative z-10 flex items-center justify-center w-16 h-16 rounded-full border-4 border-background ${getTypeColor(item.type)} text-white transition-transform duration-300 ${
-                    visibleItems.includes(index) ? "scale-100" : "scale-0"
-                  }`}
-                >
-                  {getIcon(item.type)}
+            <div className="relative flex flex-col sm:flex-row sm:items-center gap-8">
+              <div className="flex items-start gap-5 flex-1">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <GraduationCap className="w-7 h-7 text-accent" />
                 </div>
-
-                {/* Content */}
-                <div className="flex-1 pb-8">
-                  <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-light text-foreground mb-1">{item.title}</h3>
-                        <p className="text-muted-foreground font-light">{item.institution}</p>
-                      </div>
-                      <Badge variant="outline" className="mt-2 sm:mt-0 font-light">
-                        {item.year}
+                <div className="space-y-3">
+                  <div>
+                    <h3 className="text-2xl font-light text-foreground">Bachelor of Engineering</h3>
+                    <p className="text-accent font-medium">Computer Engineering</p>
+                    <p className="text-muted-foreground font-light text-sm mt-1">SOCET - Silver Oak University</p>
+                  </div>
+                  <Badge variant="outline" className="font-light">
+                    2022 - 2026
+                  </Badge>
+                  <p className="text-muted-foreground leading-relaxed font-light">
+                    Pursuing Computer Engineering with a hands-on focus on AI/ML, maintaining strong academic
+                    performance while building innovative technology solutions.
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {skills.map((skill) => (
+                      <Badge key={skill} variant="secondary" className="text-xs">
+                        {skill}
                       </Badge>
-                    </div>
-
-                    <p className="text-muted-foreground mb-4 leading-relaxed font-light">{item.description}</p>
-
-                    {item.skills && (
-                      <div className="flex flex-wrap gap-2">
-                        {item.skills.map((skill, skillIndex) => (
-                          <Badge
-                            key={skill}
-                            variant="secondary"
-                            className={`text-xs transition-all duration-300 ${
-                              visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-                            }`}
-                            style={{ transitionDelay: `${index * 200 + skillIndex * 50}ms` }}
-                          >
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    )}
-                  </Card>
+                    ))}
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div className="flex-shrink-0 sm:border-l sm:border-border/50 sm:pl-8 flex sm:flex-col items-center justify-center gap-2 self-stretch">
+                <div className="text-4xl sm:text-5xl font-light bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  9.56
+                </div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wider">CGPA / 10</div>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
-      <style jsx>{`
-        @keyframes gradient-flow {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
     </section>
   )
 }

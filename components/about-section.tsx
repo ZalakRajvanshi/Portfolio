@@ -55,7 +55,7 @@ export function AboutSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: "100ms" }}>
-                I am a passionate student leader combining technical expertise with entrepreneurial vision. My journey spans leadership roles as Vice Chair of IEEE SOU WIE SB AG, Content Lead at GDG On Campus SOU, AWS Community Volunteer, and Senior Curation Executive Officer at IEEE SOU SB—all while exploring innovation and building impactful solutions.
+                I am a passionate student leader combining technical expertise with entrepreneurial vision. My journey spans leadership roles as Vice Chair of IEEE SOU WIE SB AG, Content Lead at GDG On Campus SOU, AWS Community Volunteer, and Senior Curation Executive Officer at IEEE SOU SB, all while exploring innovation and building impactful solutions.
               </p>
 
               <p className={`transition-all duration-700 ${

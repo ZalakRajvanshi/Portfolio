@@ -13,7 +13,7 @@ export function HeroSection() {
   const [scrollY, setScrollY] = useState(0)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
-  const roles = useMemo(() => ["AI/ML Engineer", "IEEE Executive Officer", "GDG Content Lead — 2024", "Vice Chair, IEEE SOU WIE SB AG — 2025", "AWS Volunteer", "Senior Curation Executive at IEEE SOU SB"], [])
+  const roles = useMemo(() => ["AI/ML Engineer", "IEEE Executive Officer - 2025", "GDG Content Lead", "AWS Volunteer", "Senior Curation Executive at IEEE SOU SB - 2026"], [])
   
   const workImages = useMemo(() => [
     {
@@ -176,7 +176,7 @@ export function HeroSection() {
                 <span className="relative z-10">Connect</span>
               </Button>
               <Button variant="outline" size="sm" className="group border hover:bg-foreground hover:text-background bg-transparent px-6 sm:px-6 py-2 font-light border-hover-effect rounded-full ripple-button text-sm hover:scale-105 hover:shadow-lg transition-all duration-300" asChild>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="w-4 h-4 mr-1 group-hover:animate-bounce" />
                   Resume
                 </a>

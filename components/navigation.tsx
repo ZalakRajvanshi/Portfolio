@@ -17,7 +17,8 @@ export function Navigation({ activeSection }: NavigationProps) {
   const navItems = [
     { id: "hero", label: "Home" },
     { id: "about", label: "About" },
-    { id: "education", label: "Experience" },
+    { id: "experience", label: "Experience" },
+    { id: "education", label: "Education" },
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
     { id: "certificates", label: "Certificates" },

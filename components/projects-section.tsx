@@ -22,28 +22,6 @@ export function ProjectsSection() {
 
   const projects: Project[] = [
     {
-      id: 1,
-      title: "Fitness Pose Detection App",
-      description:
-        "AI-powered fitness app that detects exercise poses using MediaPipe and classifies them as correct or incorrect with a lightweight Dense Neural Network. Supports real-time webcam analysis.",
-      image: "/projects/fitness-pose-detection.jpg",
-      technologies: ["Python", "MediaPipe", "Neural Networks", "OpenCV"],
-      liveUrl: "https://github.com/ZalakRajvanshi/Fitness-Pose-Detection-App",
-      githubUrl: "https://github.com/ZalakRajvanshi/Fitness-Pose-Detection-App",
-      category: "AI Project",
-    },
-    {
-      id: 2,
-      title: "Handwritten Text Recognition",
-      description:
-        "Handwriting recognition system combining CNN models for digits and letters with OCR for full-line text. Features a modern React UI and FastAPI backend for seamless user experience.",
-      image: "/projects/handwritten-text-recognition.jpg",
-      technologies: ["Python", "CNN", "OCR", "React", "FastAPI"],
-      liveUrl: "https://github.com/ZalakRajvanshi/Handwritten-Text-Recognition",
-      githubUrl: "https://github.com/ZalakRajvanshi/Handwritten-Text-Recognition",
-      category: "AI Project",
-    },
-    {
       id: 3,
       title: "Sign Language Detection",
       description:
@@ -97,39 +75,6 @@ export function ProjectsSection() {
       liveUrl: "https://github.com/ZalakRajvanshi/Gitlane",
       githubUrl: "https://github.com/ZalakRajvanshi/Gitlane",
       category: "Developer Tool",
-    },
-    {
-      id: 8,
-      title: "Arova - AI Communication Coach",
-      description:
-        "AI-powered communication training for teams, delivering daily roleplay scenarios with instant, actionable feedback to sharpen real-world conversation skills.",
-      image: "/placeholder.svg",
-      technologies: ["JavaScript", "React", "LLMs", "AI"],
-      liveUrl: "https://com-chatbot-three.vercel.app",
-      githubUrl: "https://github.com/ZalakRajvanshi/arova-tpf-chatbot",
-      category: "AI Project",
-    },
-    {
-      id: 9,
-      title: "AI Blog Writer",
-      description:
-        "Automated blog-writing pipeline built with n8n and an LLM that turns topics and prompts into publish-ready articles, end to end.",
-      image: "/placeholder.svg",
-      technologies: ["n8n", "LLMs", "Automation", "NLP"],
-      liveUrl: "https://github.com/ZalakRajvanshi/AI-Blog-Writer-n8n",
-      githubUrl: "https://github.com/ZalakRajvanshi/AI-Blog-Writer-n8n",
-      category: "Automation",
-    },
-    {
-      id: 10,
-      title: "WhatsApp Automation",
-      description:
-        "Python automation that streamlines WhatsApp messaging workflows—scheduling and sending messages programmatically to cut out repetitive manual effort.",
-      image: "/placeholder.svg",
-      technologies: ["Python", "Automation"],
-      liveUrl: "https://github.com/ZalakRajvanshi/Whatsapp-automation",
-      githubUrl: "https://github.com/ZalakRajvanshi/Whatsapp-automation",
-      category: "Automation",
     },
   ]
 

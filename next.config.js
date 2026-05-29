@@ -4,6 +4,13 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/resume.pdf',
+        headers: [
+          { key: 'Content-Type', value: 'application/pdf' },
+          { key: 'Content-Disposition', value: 'inline' },
+        ],
+      },
+      {
         source: '/:path*',
         headers: [
           {

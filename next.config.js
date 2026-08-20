@@ -4,7 +4,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/resume.pdf',
+        source: '/Zalak_Rajvanshi_Resume.pdf',
         headers: [
           { key: 'Content-Type', value: 'application/pdf' },
           { key: 'Content-Disposition', value: 'inline' },

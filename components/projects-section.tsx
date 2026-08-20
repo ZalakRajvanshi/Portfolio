@@ -20,6 +20,27 @@ export function ProjectsSection() {
 
   const projects: Project[] = [
     {
+      id: 1,
+      title: "WhatsApp Recruitment Outreach Automation",
+      description:
+        "Runs the full candidate outreach pipeline on WhatsApp Web: a three-touch sequence with 36-hour follow-ups, replies auto-classified as positive, neutral, or negative, and every result written back to Google Sheets. Human typing speeds, randomised pauses, and daily send limits keep the account safe, while a Telegram bot drives campaigns remotely.",
+      image: "/projects/whatsapp-automation.svg",
+      technologies: ["Python", "Selenium", "Grok API", "Google Sheets API", "Telegram Bot"],
+      liveUrl: "https://github.com/ZalakRajvanshi/Whatsapp-automation",
+      githubUrl: "https://github.com/ZalakRajvanshi/Whatsapp-automation",
+      category: "Recruiting Automation · The Product Folks",
+    },
+    {
+      id: 2,
+      title: "Semantic Talent Discovery Engine",
+      description:
+        "Ranks best-fit candidates from a pool of 23,000+ indexed professionals against any uploaded job description, turning multi-day manual screening into a seconds-long semantic search. I designed the embedding pipeline, JD parsing, similarity scoring, and filter-aware ranking, shipped as a production Next.js app.",
+      image: "/projects/tpf-profile-matcher.svg",
+      technologies: ["Python", "Embeddings", "Semantic Search", "Next.js"],
+      liveUrl: "https://tpf-profile-matcher.vercel.app/",
+      category: "Applied AI · The Product Folks",
+    },
+    {
       id: 3,
       title: "Sign Language Detection",
       description:
@@ -127,32 +148,35 @@ export function ProjectsSection() {
         </div>
 
         <ul className="c-hotels__list">
-          {projects.map((project) => (
-            <article key={project.id} className="c-hotels__item bg-white dark:bg-[#0e0e0e] project-card">
-              <figure className="c-hotels__item-figure">
-                <img src={project.image || "/placeholder.svg"} alt={project.title} />
-              </figure>
+          {projects.map((project) => {
+            const projectUrl = [project.liveUrl, project.githubUrl].find((url) => url && url !== "#")
+            return (
+              <article key={project.id} className="c-hotels__item bg-white dark:bg-[#0e0e0e] project-card">
+                <figure className="c-hotels__item-figure">
+                  <img src={project.image || "/placeholder.svg"} alt={project.title} />
+                </figure>
 
-              <div className="c-hotels__item-info">
-                <h2 className="c-hotels__item-title">{project.title}</h2>
-                <p className="c-hotels__item-subtitle">{project.category}</p>
-                <p className="c-hotels__item-excerpt">{project.description}</p>
-                {project.githubUrl && project.githubUrl !== "#" ? (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="c-hotels__item-link group"
-                  >
-                    View More
-                    <ArrowRight className="w-4 h-4 ml-2 transform transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-                  </a>
-                ) : (
-                  <span className="c-hotels__item-link opacity-50 cursor-not-allowed">Coming Soon</span>
-                )}
-              </div>
-            </article>
-          ))}
+                <div className="c-hotels__item-info">
+                  <h2 className="c-hotels__item-title">{project.title}</h2>
+                  <p className="c-hotels__item-subtitle">{project.category}</p>
+                  <p className="c-hotels__item-excerpt">{project.description}</p>
+                  {projectUrl ? (
+                    <a
+                      href={projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="c-hotels__item-link group"
+                    >
+                      View More
+                      <ArrowRight className="w-4 h-4 ml-2 transform transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                    </a>
+                  ) : (
+                    <span className="c-hotels__item-link opacity-50 cursor-not-allowed">Coming Soon</span>
+                  )}
+                </div>
+              </article>
+            )
+          })}
         </ul>
       </div>
 

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" width="800" height="900" fill="none">
+  <defs>
+    <linearGradient id="pm-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0b12"/>
+      <stop offset="100%" stop-color="#12101f"/>
+    </linearGradient>
+    <linearGradient id="pm-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+    <radialGradient id="pm-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#f472b6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="pm-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="900" fill="url(#pm-bg)"/>
+  <rect width="800" height="900" fill="url(#pm-grid)"/>
+  <circle cx="400" cy="470" r="330" fill="url(#pm-glow)"/>
+
+  <!-- role brief on the left, candidate rows on the right, matched by score -->
+  <g transform="translate(110 300)">
+    <rect x="0" y="0" width="180" height="240" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="url(#pm-accent)" stroke-opacity="0.5"/>
+    <rect x="26" y="34" width="106" height="10" rx="5" fill="#ffffff" fill-opacity="0.35"/>
+    <rect x="26" y="60" width="128" height="8" rx="4" fill="#ffffff" fill-opacity="0.16"/>
+    <rect x="26" y="82" width="92" height="8" rx="4" fill="#ffffff" fill-opacity="0.16"/>
+    <rect x="26" y="104" width="118" height="8" rx="4" fill="#ffffff" fill-opacity="0.16"/>
+    <rect x="26" y="126" width="70" height="8" rx="4" fill="#ffffff" fill-opacity="0.16"/>
+    <text x="26" y="212" font-family="monospace" font-size="14" fill="#a78bfa" letter-spacing="2">JOB DESC</text>
+  </g>
+
+  <g stroke="url(#pm-accent)" stroke-width="2" fill="none">
+    <path d="M290 360 C 360 360, 380 350, 440 350" stroke-opacity="0.7"/>
+    <path d="M290 400 C 360 400, 380 440, 440 440" stroke-opacity="0.45"/>
+    <path d="M290 440 C 360 440, 380 530, 440 530" stroke-opacity="0.28"/>
+    <path d="M290 480 C 360 480, 380 620, 440 620" stroke-opacity="0.16"/>
+  </g>
+
+  <g transform="translate(440 320)" font-family="monospace" font-size="15">
+    <g>
+      <rect x="0" y="0" width="250" height="60" rx="16" fill="#ffffff" fill-opacity="0.08" stroke="#60a5fa" stroke-opacity="0.6"/>
+      <circle cx="34" cy="30" r="14" fill="#60a5fa" fill-opacity="0.25"/>
+      <rect x="60" y="24" width="96" height="9" rx="4" fill="#ffffff" fill-opacity="0.4"/>
+      <text x="224" y="35" fill="#60a5fa" text-anchor="end">0.94</text>
+    </g>
+    <g transform="translate(0 90)">
+      <rect x="0" y="0" width="250" height="60" rx="16" fill="#ffffff" fill-opacity="0.06" stroke="#a78bfa" stroke-opacity="0.4"/>
+      <circle cx="34" cy="30" r="14" fill="#a78bfa" fill-opacity="0.2"/>
+      <rect x="60" y="24" width="80" height="9" rx="4" fill="#ffffff" fill-opacity="0.3"/>
+      <text x="224" y="35" fill="#a78bfa" text-anchor="end">0.81</text>
+    </g>
+    <g transform="translate(0 180)">
+      <rect x="0" y="0" width="250" height="60" rx="16" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.16"/>
+      <circle cx="34" cy="30" r="14" fill="#ffffff" fill-opacity="0.12"/>
+      <rect x="60" y="24" width="66" height="9" rx="4" fill="#ffffff" fill-opacity="0.22"/>
+      <text x="224" y="35" fill="#ffffff" fill-opacity="0.4" text-anchor="end">0.57</text>
+    </g>
+    <g transform="translate(0 270)">
+      <rect x="0" y="0" width="250" height="60" rx="16" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.1"/>
+      <circle cx="34" cy="30" r="14" fill="#ffffff" fill-opacity="0.08"/>
+      <rect x="60" y="24" width="52" height="9" rx="4" fill="#ffffff" fill-opacity="0.16"/>
+      <text x="224" y="35" fill="#ffffff" fill-opacity="0.28" text-anchor="end">0.32</text>
+    </g>
+  </g>
+
+  <text x="110" y="180" font-family="ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="300" fill="#ffffff" fill-opacity="0.92">Semantic talent discovery</text>
+  <text x="110" y="216" font-family="monospace" font-size="16" fill="#ffffff" fill-opacity="0.35" letter-spacing="3">THE PRODUCT FOLKS</text>
+  <text x="110" y="720" font-family="monospace" font-size="18" fill="#60a5fa" fill-opacity="0.75" letter-spacing="2">23,000+ PROFILES INDEXED</text>
+</svg>

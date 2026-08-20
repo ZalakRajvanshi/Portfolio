@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" width="800" height="900" fill="none">
+  <defs>
+    <linearGradient id="wa-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0b12"/>
+      <stop offset="100%" stop-color="#141021"/>
+    </linearGradient>
+    <linearGradient id="wa-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+    <radialGradient id="wa-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.45"/>
+      <stop offset="55%" stop-color="#60a5fa" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="wa-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="900" fill="url(#wa-bg)"/>
+  <rect width="800" height="900" fill="url(#wa-grid)"/>
+  <circle cx="400" cy="400" r="330" fill="url(#wa-glow)"/>
+
+  <!-- outreach sequence: three chat bubbles stepping down the canvas -->
+  <g transform="translate(150 250)">
+    <rect x="0" y="0" width="330" height="96" rx="26" fill="#ffffff" fill-opacity="0.07" stroke="url(#wa-accent)" stroke-opacity="0.55"/>
+    <rect x="30" y="30" width="200" height="10" rx="5" fill="#ffffff" fill-opacity="0.34"/>
+    <rect x="30" y="56" width="130" height="10" rx="5" fill="#ffffff" fill-opacity="0.18"/>
+    <text x="304" y="86" font-family="monospace" font-size="15" fill="#60a5fa" text-anchor="end">01</text>
+  </g>
+
+  <g transform="translate(220 400)">
+    <rect x="0" y="0" width="330" height="96" rx="26" fill="#ffffff" fill-opacity="0.07" stroke="url(#wa-accent)" stroke-opacity="0.4"/>
+    <rect x="30" y="30" width="230" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+    <rect x="30" y="56" width="150" height="10" rx="5" fill="#ffffff" fill-opacity="0.16"/>
+    <text x="304" y="86" font-family="monospace" font-size="15" fill="#a78bfa" text-anchor="end">02</text>
+  </g>
+
+  <g transform="translate(290 550)">
+    <rect x="0" y="0" width="330" height="96" rx="26" fill="#ffffff" fill-opacity="0.07" stroke="url(#wa-accent)" stroke-opacity="0.3"/>
+    <rect x="30" y="30" width="180" height="10" rx="5" fill="#ffffff" fill-opacity="0.26"/>
+    <rect x="30" y="56" width="110" height="10" rx="5" fill="#ffffff" fill-opacity="0.14"/>
+    <text x="304" y="86" font-family="monospace" font-size="15" fill="#f472b6" text-anchor="end">03</text>
+  </g>
+
+  <!-- connective flow line -->
+  <path d="M180 360 C 120 400, 200 430, 250 400 M320 510 C 260 550, 340 580, 390 550" stroke="url(#wa-accent)" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 8" fill="none"/>
+
+  <!-- classification chips -->
+  <g font-family="monospace" font-size="16" transform="translate(150 720)">
+    <rect x="0" y="0" width="120" height="42" rx="21" fill="#34d399" fill-opacity="0.14" stroke="#34d399" stroke-opacity="0.5"/>
+    <text x="60" y="27" fill="#34d399" text-anchor="middle">positive</text>
+    <rect x="140" y="0" width="120" height="42" rx="21" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.2"/>
+    <text x="200" y="27" fill="#ffffff" fill-opacity="0.5" text-anchor="middle">neutral</text>
+    <rect x="280" y="0" width="120" height="42" rx="21" fill="#f472b6" fill-opacity="0.12" stroke="#f472b6" stroke-opacity="0.45"/>
+    <text x="340" y="27" fill="#f472b6" text-anchor="middle">negative</text>
+  </g>
+
+  <text x="150" y="170" font-family="ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="300" fill="#ffffff" fill-opacity="0.92">Outreach, on autopilot</text>
+  <text x="150" y="206" font-family="monospace" font-size="16" fill="#ffffff" fill-opacity="0.35" letter-spacing="3">THE PRODUCT FOLKS</text>
+</svg>

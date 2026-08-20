@@ -7,7 +7,16 @@ import { MessageCircle, X, Send } from "lucide-react"
 
 const portfolioData = {
   name: "Zalak Rajvanshi",
-  roles: ["IEEE SOU WIE Vice Chair", "GDG Content Lead", "AWS Volunteer", "Senior Curation Executive"],
+  roles: ["AI Engineer at The Product Folks", "IEEE SOU WIE Vice Chair", "GDG Content Lead", "AWS Volunteer", "Senior Curation Executive"],
+  experience: {
+    role: "AI Engineer",
+    company: "The Product Folks",
+    period: "2026 - Present",
+    work: [
+      "WhatsApp Recruitment Outreach Automation - 3-touch candidate outreach with AI reply classification",
+      "Semantic Talent Discovery Engine - semantic search over 23,000+ profiles, live at tpf-profile-matcher.vercel.app"
+    ]
+  },
   education: {
     degree: "B.Tech Computer Engineering",
     university: "Silver Oak University",
@@ -21,6 +30,8 @@ const portfolioData = {
     soft: ["Leadership", "Content Creation", "Innovation", "Entrepreneurship", "Communication"]
   },
   projects: [
+    "WhatsApp Recruitment Outreach Automation - AI-driven candidate outreach pipeline",
+    "Semantic Talent Discovery Engine - ranks best-fit candidates from 23,000+ profiles against any job description",
     "Smart Task AI - AI-powered task management",
     "Health RAG System - Medical information retrieval",
     "Sign Language Detection - Real-time gesture recognition",
@@ -52,9 +63,14 @@ const generateResponse = (query: string): string => {
     return `I'm ${portfolioData.name}, a B.Tech CE student at Silver Oak University with a passion for AI/ML and entrepreneurship.`
   }
   
+  // Current role at The Product Folks
+  if (lowerQuery.match(/(product folks|tpf|internship|intern|where do you work|current job|company)/)) {
+    return `💼 AI Engineer at The Product Folks (2026 - Present):\nI build and ship AI systems for hiring and product workflows.\n• WhatsApp Recruitment Outreach Automation - a 3-touch outreach pipeline with AI reply classification and Google Sheets tracking\n• Semantic Talent Discovery Engine - a live Next.js app that ranks best-fit candidates from 23,000+ indexed profiles against any uploaded job description, cutting multi-day screening to seconds`
+  }
+
   // Projects - flexible matching
   if (lowerQuery.match(/(project|work|portfolio|built|created|developed|made)/)) {
-    return `📁 My Projects:\n• Smart Task AI - AI-powered task management\n• Health RAG System - Medical information retrieval\n• Sign Language Detection - Real-time gesture recognition\n• Handwritten Text Recognition - OCR system\n• Fitness Pose Detection - Computer vision for fitness\n\nView all projects in the Projects section!`
+    return `📁 My Projects:\n• WhatsApp Recruitment Outreach Automation - AI-driven candidate outreach (The Product Folks)\n• Semantic Talent Discovery Engine - AI candidate matching over 23,000+ profiles (The Product Folks)\n• Smart Task AI - AI-powered task management\n• Health RAG System - Medical information retrieval\n• Sign Language Detection - Real-time gesture recognition\n• Handwritten Text Recognition - OCR system\n• Fitness Pose Detection - Computer vision for fitness\n\nView all projects in the Projects section!`
   }
   
   // Achievements
@@ -131,7 +147,7 @@ const generateResponse = (query: string): string => {
   
   // Experience
   if (lowerQuery.match(/(experience|background|journey|story)/)) {
-    return `I'm a B.Tech CE student (CGPA 9.56) with strong AI/ML expertise and 4 leadership roles. I combine technical skills with entrepreneurial thinking to build innovative solutions.`
+    return `I'm an AI Engineer at The Product Folks and a B.Tech CE student (CGPA 9.56), alongside 4 leadership roles. Day to day I ship AI systems for hiring and product workflows, from outreach automation to candidate-to-role matching.`
   }
   
   // Default fallback

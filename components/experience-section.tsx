@@ -17,13 +17,13 @@ export function ExperienceSection() {
   const experiences: ExperienceItem[] = [
     {
       id: 1,
-      role: "AI Intern",
+      role: "AI Engineer",
       company: "The Product Folks",
       period: "2026 / Present",
       current: true,
       description:
-        "Building and deploying AI/ML solutions, developing intelligent features, prototypes, and data-driven tools for real-world products.",
-      skills: ["AI/ML", "Python", "LLMs", "Problem Solving"],
+        "Building and deploying AI systems for hiring and product workflows. Shipped a WhatsApp outreach pipeline that runs candidate follow-ups end to end with AI reply classification, and a profile matcher that ranks applicants against a role brief.",
+      skills: ["AI/ML", "Python", "LLMs", "Automation", "Problem Solving"],
     },
   ]
 

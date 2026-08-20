@@ -23,7 +23,7 @@ export function AboutSection() {
   const teasers = [
     {
       label: "Experience",
-      text: "AI Intern at The Product Folks, building AI and machine learning products.",
+      text: "AI Engineer at The Product Folks, shipping LLM-powered features for real products.",
       target: "experience",
     },
     {

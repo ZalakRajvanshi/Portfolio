@@ -64,8 +64,10 @@ export function AboutSection() {
 
           <Reveal delay={120}>
             <p className="text-base font-light leading-relaxed text-muted-foreground">
-              A student leader who pairs technical depth with entrepreneurial vision, building AI and machine learning
-              solutions that solve real problems across IEEE WIE, GDG, and the AWS community.
+              My work has been shaped by taking problems end to end. Across AI and ML, I carry projects from the
+              technical core through to the software and product built around it, learning new ground as the work
+              demands. That range lets me lead a build, collaborate closely on one, or run it independently when
+              that is what the problem needs.
             </p>
           </Reveal>
 
